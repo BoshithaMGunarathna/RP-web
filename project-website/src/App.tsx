@@ -1,9 +1,9 @@
-// App.tsx
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -13,6 +13,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="*" element={<div>Welcome to Our Research Project</div>} /> */}
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
   )
