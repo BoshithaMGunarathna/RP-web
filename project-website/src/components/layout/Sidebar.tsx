@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'  // <--- import useLocation
+import { useLocation, useNavigate } from 'react-router-dom'  // <-- added useNavigate
 import {
   Dialog,
   DialogBackdrop,
@@ -38,6 +38,7 @@ function classNames(...classes: (string | boolean | undefined)[]): string {
 
 export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
   const location = useLocation()
+  const navigate = useNavigate()  // <-- initialize useNavigate
 
   return (
     <>
@@ -63,9 +64,15 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
             </TransitionChild>
             <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
               <div className="flex h-16 shrink-0 items-center">
-                <a href="/">
+                <button
+                  onClick={() => {
+                    navigate('/')
+                    setSidebarOpen(false)
+                  }}
+                  aria-label="Go to Home"
+                >
                   <img alt="Silicon Nerds" src={logo} className="h-12 w-auto cursor-pointer" />
-                </a>
+                </button>
               </div>
               <nav className="flex flex-1 flex-col">
                 <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -75,13 +82,16 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
                         const isCurrent = location.pathname === item.href
                         return (
                           <li key={item.name}>
-                            <a
-                              href={item.href}
+                            <button
+                              onClick={() => {
+                                navigate(item.href)
+                                setSidebarOpen(false)
+                              }}
                               className={classNames(
                                 isCurrent
                                   ? 'bg-gray-50 text-indigo-600'
                                   : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600',
-                                'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold',
+                                'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full text-left',
                               )}
                               aria-current={isCurrent ? 'page' : undefined}
                             >
@@ -93,23 +103,26 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
                                 )}
                               />
                               {item.name}
-                            </a>
+                            </button>
                           </li>
                         )
                       })}
                     </ul>
                   </li>
                   <li className="mt-auto">
-                    <a
-                      href="#"
-                      className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                    <button
+                      onClick={() => {
+                        /* Add your settings navigation or handler here */
+                        // e.g. navigate('/settings')
+                      }}
+                      className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600 w-full"
                     >
                       <Cog6ToothIcon
                         aria-hidden="true"
                         className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                       />
                       Settings
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </nav>
@@ -122,9 +135,13 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
           <div className="flex h-16 shrink-0 items-center">
-            <a href="/">
-              <img alt="Silicon Nerds" src={logo} className="h-15 w-auto cursor-pointer" />
-            </a>
+            <button
+              onClick={() => navigate('/')}
+              aria-label="Go to Home"
+              className="cursor-pointer"
+            >
+              <img alt="Silicon Nerds" src={logo} className="h-15 w-auto" />
+            </button>
           </div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -134,13 +151,13 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
                     const isCurrent = location.pathname === item.href
                     return (
                       <li key={item.name}>
-                        <a
-                          href={item.href}
+                        <button
+                          onClick={() => navigate(item.href)}
                           className={classNames(
                             isCurrent
                               ? 'bg-gray-50 text-indigo-600'
                               : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600',
-                            'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold',
+                            'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold w-full text-left',
                           )}
                           aria-current={isCurrent ? 'page' : undefined}
                         >
@@ -152,23 +169,26 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
                             )}
                           />
                           {item.name}
-                        </a>
+                        </button>
                       </li>
                     )
                   })}
                 </ul>
               </li>
               <li className="mt-auto">
-                <a
-                  href="#"
-                  className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                <button
+                  onClick={() => {
+                    /* Add your settings navigation or handler here */
+                    // e.g. navigate('/settings')
+                  }}
+                  className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold text-gray-700 hover:bg-gray-50 hover:text-indigo-600 w-full"
                 >
                   <Cog6ToothIcon
                     aria-hidden="true"
                     className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
                   />
                   Settings
-                </a>
+                </button>
               </li>
             </ul>
           </nav>
