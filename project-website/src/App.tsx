@@ -1,15 +1,20 @@
 // App.tsx
 import { Routes, Route } from 'react-router-dom'
-import About from './pages/About.tsx'
+import Layout from './components/layout/Layout'
+import About from './pages/About'
 import Contact from './pages/Contact'
+import Home from './pages/Home'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="*" element={<div>Welcome to Our Research Project</div>} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="*" element={<div>Welcome to Our Research Project</div>} /> */}
+      </Routes>
+    </Layout>
   )
 }
 
