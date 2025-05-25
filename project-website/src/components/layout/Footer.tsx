@@ -63,15 +63,15 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-300 bg-white">
+    <footer className="border-t border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-black dark:text-gray-200 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
         <nav className="flex flex-col md:flex-row md:justify-between md:items-center space-y-6 md:space-y-0">
-          <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-4">
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm">
             {navigation.main.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+                className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline transition-colors duration-200"
               >
                 {item.name}
               </a>
@@ -82,18 +82,16 @@ export default function Footer() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-400 hover:text-gray-500"
-                aria-label={item.name}
-                target="_blank"
-                rel="noopener noreferrer"
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
               >
+                <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </a>
             ))}
           </div>
         </nav>
-        <p className="mt-8 text-center text-xs text-gray-500">
-          &copy; 2025 SiliconNerds, Inc. All rights reserved.
+        <p className="mt-8 text-center text-xs text-gray-600 dark:text-gray-400">
+          &copy; {new Date().getFullYear()} SiliconNerds, Inc. All rights reserved.
         </p>
       </div>
     </footer>
