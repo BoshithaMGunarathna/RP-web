@@ -3,74 +3,84 @@ import { Car, UserCheck, Video } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-indigo-100 flex flex-col">
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 flex flex-col-reverse lg:flex-row items-center gap-10">
-        <div className="max-w-lg text-center lg:text-left">
-          <h1 className="text-4xl font-extrabold text-indigo-900 mb-4">
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl font-extrabold text-indigo-900 dark:text-white mb-4 transition-colors duration-300">
             Automotive Interview System
           </h1>
-          <p className="text-indigo-700 text-lg mb-6">
+          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300 transition-colors duration-300">
             Streamline your hiring process with AI-powered video interviews and automated candidate evaluation.
           </p>
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md shadow-md transition">
+          <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
             Get Started
           </button>
-        </div>
-        <div className="w-full max-w-md lg:max-w-lg">
-          <img
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-            alt="Automotive Interview"
-            className="rounded-lg shadow-lg"
-            loading="lazy"
-          />
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-white py-16 shadow-inner">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div className="flex flex-col items-center gap-4 px-4">
-            <Car className="w-12 h-12 text-indigo-600" />
-            <h3 className="text-xl font-semibold text-indigo-900">Industry Focused</h3>
-            <p className="text-indigo-700">
-              Tailored specifically for the automotive sector to assess technical skills and professionalism.
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-4 px-4">
-            <Video className="w-12 h-12 text-indigo-600" />
-            <h3 className="text-xl font-semibold text-indigo-900">Video Based Mockups</h3>
-            <p className="text-indigo-700">
-              Conduct interactive video interviews that simulate real-world scenarios.
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-4 px-4">
-            <UserCheck className="w-12 h-12 text-indigo-600" />
-            <h3 className="text-xl font-semibold text-indigo-900">Automated Evaluation</h3>
-            <p className="text-indigo-700">
-              Use AI-driven assessments to automatically evaluate candidate performance and professionalism.
-            </p>
+      <section className="py-16 px-4 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div className="flex justify-center mb-4">
+                <Car className="w-12 h-12 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                Industry Focused
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Tailored specifically for the automotive sector to assess technical skills and professionalism.
+              </p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div className="flex justify-center mb-4">
+                <Video className="w-12 h-12 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                Video Based Mockups
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Conduct interactive video interviews that simulate real-world scenarios.
+              </p>
+            </div>
+            
+            <div className="text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div className="flex justify-center mb-4">
+                <UserCheck className="w-12 h-12 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                Automated Evaluation
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Use AI-driven assessments to automatically evaluate candidate performance and professionalism.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-indigo-900 mb-10 text-center">
-          Why Choose Our System?
-        </h2>
-        <ul className="max-w-3xl mx-auto space-y-6">
-          {[
-            'Save time with automated candidate screening',
-            'Gain insights with detailed performance analytics',
-            'Enhance candidate experience with smooth video interactions',
-          ].map((point) => (
-            <li key={point} className="flex items-center gap-3 text-indigo-700 text-lg">
-              <CheckCircleIcon className="w-6 h-6 text-indigo-500 flex-shrink-0" />
-              {point}
-            </li>
-          ))}
-        </ul>
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Why Choose Our System?
+          </h2>
+          <div className="space-y-4">
+            {[
+              'Save time with automated candidate screening',
+              'Gain insights with detailed performance analytics',
+              'Enhance candidate experience with smooth video interactions',
+            ].map((point, index) => (
+              <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <CheckCircleIcon className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
+                <span className="text-gray-700 dark:text-gray-200 text-lg">{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   )
