@@ -211,7 +211,7 @@ const Documents = () => {
         document.body.removeChild(link);
       }
     } else {
-      // Fallback for documents without file paths
+      
       alert(`${doc.title} download will be available soon.`);
     }
   };
