@@ -1,11 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
-import { FileText, Download, Search, Filter, X, Calendar, ExternalLink } from 'lucide-react';
-import { motion } from 'framer-motion';
-import Section from '../components/ui/Section';
-import Card from '../components/ui/Card';
-import Button from '../components/ui/Button';
+import { FileText, Search, Filter, X, Calendar, ExternalLink, Eye } from 'lucide-react';
 
-type PresentationCategory = 'all' | 'conferences' | 'workshops' | 'seminars' | 'internal';
+type PresentationCategory = 'all' | 'proposal' | 'progress' | 'final' | 'conferences' | 'workshops' | 'seminars' | 'internal';
 
 interface Presentation {
   id: string;
@@ -18,106 +15,93 @@ interface Presentation {
   slidesUrl?: string;
   recordingUrl?: string;
   thumbnailUrl: string;
+  pdfPath?: string;
+  isUpcoming?: boolean;
 }
 
 const Presentations = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<PresentationCategory>('all');
-
-  const presentations: Presentation[] = [
+  const [presentations, setPresentations] = useState<Presentation[]>([
     {
       id: '1',
-      title: 'Initial Research Findings',
-      description: 'Presentation of our initial research findings at the International Conference on Research Innovation.',
-      category: 'conferences',
-      date: 'Mar 15, 2023',
+      title: 'Research Proposal Presentation',
+      description: 'Initial presentation outlining our research objectives, methodology, and expected outcomes for the project.',
+      category: 'proposal',
+      date: 'Jan 15, 2023',
       presenter: 'Dr. Emily Johnson',
-      venue: 'International Conference on Research Innovation',
-      slidesUrl: '#',
-      recordingUrl: '#',
+      venue: 'Research Committee Meeting',
+      pdfPath: '/presentation/Proposal.pdf',
       thumbnailUrl: 'https://images.pexels.com/photos/7103/writing-notes-idea-conference.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: '2',
-      title: 'Methodology Workshop',
-      description: 'Interactive workshop exploring our research methodologies and analytical approaches.',
-      category: 'workshops',
+      title: 'Progress Presentation - Phase 1',
+      description: 'First quarterly progress update showcasing initial findings and methodology validation.',
+      category: 'progress',
       date: 'Apr 22, 2023',
-      presenter: 'Prof. Michael Chen',
-      venue: 'University Research Center',
-      slidesUrl: '#',
+      presenter: 'Research Team',
+      venue: 'Department Review Meeting',
+      pdfPath: '/presentation/Progress1.pdf',
+      recordingUrl: '#',
       thumbnailUrl: 'https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: '3',
-      title: 'Quarterly Progress Update',
-      description: 'Internal presentation to stakeholders detailing progress during Q1 2023.',
-      category: 'internal',
-      date: 'May 5, 2023',
-      presenter: 'Research Team',
-      venue: 'Virtual Meeting',
-      slidesUrl: '#',
-      recordingUrl: '#',
+      title: 'Progress Presentation - Phase 2',
+      description: 'Mid-project progress report detailing experimental results and data analysis progress.',
+      category: 'progress',
+      date: 'Jul 15, 2023',
+      presenter: 'Prof. Michael Chen',
+      venue: 'Stakeholder Meeting',
+      pdfPath: '/presentation/Progress2.pdf',
       thumbnailUrl: 'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
+
     {
       id: '4',
-      title: 'Research Seminar Series',
-      description: 'Seminar exploring the theoretical underpinnings of our research approach.',
-      category: 'seminars',
-      date: 'Jun 18, 2023',
-      presenter: 'Dr. Sarah Williams',
-      venue: 'Department of Research Sciences',
-      slidesUrl: '#',
-      thumbnailUrl: 'https://images.pexels.com/photos/5427669/pexels-photo-5427669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: '5',
-      title: 'Experimental Results Analysis',
-      description: 'Presentation of experimental data and analysis methods used in our research.',
-      category: 'conferences',
-      date: 'Jul 30, 2023',
-      presenter: 'Dr. James Rodriguez',
-      venue: 'Global Research Forum',
-      slidesUrl: '#',
+      title: 'Final Project Presentation',
+      description: 'Comprehensive final presentation summarizing all research outcomes, conclusions, and recommendations.',
+      category: 'final',
+      date: 'Dec 5, 2023',
+      presenter: 'Complete Research Team',
+      venue: 'Final Defense Committee',
+      pdfPath: '/presentation/Final.pdf',
       recordingUrl: '#',
       thumbnailUrl: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
+    // Upcoming presentations
     {
-      id: '6',
-      title: 'Industry Applications Workshop',
-      description: 'Workshop focused on potential industry applications of our research findings.',
-      category: 'workshops',
-      date: 'Aug 12, 2023',
-      presenter: 'Prof. Michelle Taylor',
-      venue: 'Industry Partner Headquarters',
-      slidesUrl: '#',
+      id: '5',
+      title: 'SLASSCOM Presentation',
+      description: 'Additional progress presentation for extended research phase.',
+      category: 'conferences',
+      date: 'May 28, 2025',
+      presenter: 'Boshitha Gunarathna',
+      venue: 'Research Review Board',
       thumbnailUrl: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      isUpcoming: true,
     },
-    {
-      id: '7',
-      title: 'Theoretical Framework Development',
-      description: 'Detailed exploration of the theoretical framework underlying our research project.',
-      category: 'seminars',
-      date: 'Sep 25, 2023',
-      presenter: 'Dr. Daniel Kim',
-      venue: 'University Research Symposium',
-      slidesUrl: '#',
+        {
+      id: '6',
+      title: 'Research paper Conference Presentation',
+      description: 'Presentation of key findings at the International Research Conference.',
+      category: 'conferences',
+      date: 'June, 2025',
+      presenter: 'Boshitha Gunarathna',
+      venue: 'Online',
+      pdfPath: '/presentations/conference-presentation.pdf',
       recordingUrl: '#',
-      thumbnailUrl: 'https://images.pexels.com/photos/3153203/pexels-photo-3153203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      thumbnailUrl: 'https://images.pexels.com/photos/5427669/pexels-photo-5427669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      isUpcoming: true,
     },
-    {
-      id: '8',
-      title: 'Year-End Progress Report',
-      description: 'Comprehensive overview of research progress and achievements for stakeholders.',
-      category: 'internal',
-      date: 'Dec 7, 2023',
-      presenter: 'Research Team Lead',
-      venue: 'Board Room',
-      slidesUrl: '#',
-      thumbnailUrl: 'https://images.pexels.com/photos/1181304/pexels-photo-1181304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-  ];
+  ]);
+
+  const handleOpenPDF = (presentation: Presentation) => {
+    if (presentation.pdfPath) {
+      window.open(presentation.pdfPath, '_blank');
+    }
+  };
 
   const filteredPresentations = presentations
     .filter(presentation => 
@@ -132,39 +116,45 @@ const Presentations = () => {
 
   const categories: { id: PresentationCategory; label: string }[] = [
     { id: 'all', label: 'All Presentations' },
+    { id: 'proposal', label: 'Proposal Presentations' },
+    { id: 'progress', label: 'Progress Presentations' },
+    { id: 'final', label: 'Final Presentations' },
     { id: 'conferences', label: 'Conference Presentations' },
-    { id: 'workshops', label: 'Workshops' },
-    { id: 'seminars', label: 'Seminars' },
-    { id: 'internal', label: 'Internal Presentations' },
+    
   ];
 
-  return (
-    <div className="pt-20">
-      {/* Header */}
-      <Section background="primary">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold font-serif mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Presentations & Slides
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl text-white/90"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Access all research presentations, workshop materials, and seminar recordings
-          </motion.p>
-        </div>
-      </Section>
+  const getCategoryColor = (category: string) => {
+    const colors = {
+      proposal: 'bg-blue-100 text-blue-800',
+      progress: 'bg-green-100 text-green-800',
+      final: 'bg-purple-100 text-purple-800',
+      conferences: 'bg-orange-100 text-orange-800',
+      
+   
+     
+    };
+    return colors[category] || 'bg-gray-100 text-gray-800';
+  };
 
-      {/* Search and Filter */}
-      <Section>
-        <div className="mb-8">
+  return (
+    <div className="min-h-screen pt-20 bg-gray-50">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Research Presentations & Slides
+            </h1>
+            <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+              Access all research presentations, from initial proposals to final outcomes
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Search and Filter */}
+        <div className="mb-8 bg-white rounded-lg shadow-sm p-6">
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <div className="relative flex-grow">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -172,7 +162,7 @@ const Presentations = () => {
               </div>
               <input
                 type="text"
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search presentations..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -187,12 +177,12 @@ const Presentations = () => {
                 </button>
               )}
             </div>
-            <div className="relative">
+            <div className="relative min-w-[200px]">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Filter size={18} className="text-gray-400" />
               </div>
               <select
-                className="block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 appearance-none"
+                className="block w-full pl-10 pr-10 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-white"
                 value={activeCategory}
                 onChange={(e) => setActiveCategory(e.target.value as PresentationCategory)}
               >
@@ -217,7 +207,7 @@ const Presentations = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2 text-sm rounded-full transition-colors ${
                   activeCategory === category.id
-                    ? 'bg-primary-700 text-white'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -230,71 +220,84 @@ const Presentations = () => {
         {/* Presentations Grid */}
         {filteredPresentations.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPresentations.map((presentation, index) => (
-              <motion.div
-                key={presentation.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                <Card variant="elevated" className="h-full overflow-hidden flex flex-col">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={presentation.thumbnailUrl} 
-                      alt={presentation.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <div className="flex items-center mb-3">
-                      <div className="bg-primary-100 px-3 py-1 rounded-full text-xs font-medium text-primary-800">
-                        {presentation.category}
-                      </div>
-                      <div className="ml-auto text-sm text-gray-500 flex items-center">
-                        <Calendar size={14} className="mr-1" />
-                        {presentation.date}
-                      </div>
+            {filteredPresentations.map((presentation) => (
+              <div key={presentation.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={presentation.thumbnailUrl} 
+                    alt={presentation.title}
+                    className="w-full h-full object-cover"
+                  />
+                  {presentation.isUpcoming && (
+                    <div className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                      Upcoming
                     </div>
-                    
-                    <h3 className="text-xl font-bold mb-2">{presentation.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4 flex-grow">{presentation.description}</p>
-                    
-                    <div className="mt-auto">
-                      <div className="text-sm text-gray-600 mb-3">
-                        <strong>Presenter:</strong> {presentation.presenter}
-                      </div>
-                      <div className="text-sm text-gray-600 mb-4">
-                        <strong>Venue:</strong> {presentation.venue}
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-2">
-                        {presentation.slidesUrl && (
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            icon={<Download size={16} />}
-                          >
-                            Slides
-                          </Button>
-                        )}
-                        {presentation.recordingUrl && (
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            icon={<ExternalLink size={16} />}
-                          >
-                            Recording
-                          </Button>
-                        )}
-                      </div>
+                  )}
+                </div>
+                
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(presentation.category)}`}>
+                      {presentation.category.charAt(0).toUpperCase() + presentation.category.slice(1)}
+                    </div>
+                    <div className="text-sm text-gray-500 flex items-center">
+                      <Calendar size={14} className="mr-1" />
+                      {presentation.date}
                     </div>
                   </div>
-                </Card>
-              </motion.div>
+                  
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">{presentation.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">{presentation.description}</p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <div className="text-sm text-gray-600">
+                      <span className="font-medium">Presenter:</span> {presentation.presenter}
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      <span className="font-medium">Venue:</span> {presentation.venue}
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col gap-2">
+                    {!presentation.isUpcoming && (
+                      <>
+                        {/* Action Buttons */}
+                        <div className="flex gap-2">
+                          {presentation.pdfPath && (
+                            <button 
+                              onClick={() => handleOpenPDF(presentation)}
+                              className="flex items-center gap-2 px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex-1 justify-center"
+                            >
+                              <Eye size={16} />
+                              View Slides
+                            </button>
+                          )}
+                          {presentation.recordingUrl && presentation.recordingUrl !== '#' && (
+                            <button 
+                              onClick={() => window.open(presentation.recordingUrl, '_blank')}
+                              className="flex items-center gap-2 px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 flex-1 justify-center"
+                            >
+                              <ExternalLink size={16} />
+                              Recording
+                            </button>
+                          )}
+                        </div>
+                      </>
+                    )}
+                    
+                    {presentation.isUpcoming && (
+                      <button className="flex items-center gap-2 px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 w-full justify-center">
+                        <Calendar size={16} />
+                        Add to Calendar
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 bg-gray-50 rounded-lg">
+          <div className="text-center py-12 bg-white rounded-lg shadow-sm">
             <FileText size={48} className="mx-auto text-gray-400 mb-4" />
             <h3 className="text-xl font-bold mb-2">No presentations found</h3>
             <p className="text-gray-600">
@@ -302,150 +305,47 @@ const Presentations = () => {
             </p>
           </div>
         )}
-      </Section>
+      </div>
 
-      {/* Featured Presentation */}
-      <Section background="light" title="Featured Presentation" centered>
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Card variant="elevated" className="overflow-hidden">
-              <div className="relative pb-[56.25%] h-0">
-                <div className="absolute inset-0 bg-gray-800 flex items-center justify-center">
-                  <img 
-                    src="https://images.pexels.com/photos/7092613/pexels-photo-7092613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                    alt="Keynote presentation"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                      <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
-                        <svg className="w-6 h-6 text-primary-700 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+      {/* Future Presentations Section */}
+      <div className="bg-white mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Future Presentation Opportunities</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our upcoming presentations and research updates
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[ 'Conference Submission', 'SLASSCOM Ceremony'].map((title, i) => (
+              <div key={i} className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="w-6 h-6 text-gray-400" />
                 </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500">Planning in progress</p>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">Keynote: Future Directions in Our Research Field</h3>
-                <p className="text-gray-600 mb-4">
-                  An inspiring keynote presentation by our lead researcher, discussing the future directions
-                  and potential impact of our research project.
-                </p>
-                <div className="flex flex-wrap items-center justify-between">
-                  <div className="text-sm text-gray-600 mb-2 md:mb-0">
-                    <span className="font-medium">Presenter:</span> Dr. Emily Johnson | 
-                    <span className="ml-2 font-medium">Date:</span> October 10, 2023
-                  </div>
-                  <div className="flex gap-3">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      icon={<Download size={16} />}
-                    >
-                      Download Slides
-                    </Button>
-                    <Button 
-                      variant="primary" 
-                      size="sm"
-                      icon={<ExternalLink size={16} />}
-                    >
-                      Watch Recording
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
+            ))}
+          </div>
         </div>
-      </Section>
-
-      {/* Upcoming Presentations */}
-      <Section title="Upcoming Presentations" centered>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {[1, 2, 3].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <Card variant="bordered" className="h-full p-6">
-                <div className="text-sm text-primary-700 mb-2">
-                  {new Date(Date.now() + i * 15 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    year: 'numeric' 
-                  })}
-                </div>
-                <h3 className="text-xl font-bold mb-3">Upcoming Presentation {i}</h3>
-                <p className="text-gray-600 mb-4">
-                  Brief description of this upcoming presentation, highlighting the main topics and their significance.
-                </p>
-                <div className="mb-4 pb-4 border-b border-gray-100">
-                  <div className="text-sm text-gray-600">
-                    <div className="mb-1"><span className="font-medium">Presenter:</span> Researcher Name</div>
-                    <div><span className="font-medium">Venue:</span> Presentation Venue</div>
-                  </div>
-                </div>
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  icon={<Calendar size={16} />}
-                >
-                  Add to Calendar
-                </Button>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
+      </div>
 
       {/* Call to Action */}
-      <Section background="secondary">
-        <div className="text-center max-w-3xl mx-auto">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold font-serif mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Looking for Specific Presentations?
-          </motion.h2>
-          <motion.p 
-            className="text-lg md:text-xl mb-8 text-white/90"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            If you can't find the presentation you're looking for, or if you need access to materials
-            from past presentations not listed here, please reach out to us.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Button 
-              to="/contact" 
-              variant="primary"
-              className="bg-white text-secondary-700 hover:bg-gray-100"
-            >
-              Request Materials
-            </Button>
-          </motion.div>
+      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-4">Need Access to Additional Materials?</h2>
+            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+              If you need access to specific presentation materials or have questions about our research,
+              please don't hesitate to reach out.
+            </p>
+            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+              Contact Research Team
+            </button>
+          </div>
         </div>
-      </Section>
+      </div>
     </div>
   );
 };
