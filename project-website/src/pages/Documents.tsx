@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import pdf from '../public/documents/proposal merged.pdf'; // Example import for a PDF file
+
 
 type DocumentCategory = 'all' | 'papers' | 'reports' | 'presentations' | 'data';
 
@@ -16,7 +16,7 @@ interface Document {
   date: string;
   fileType: string;
   fileSize: string;
-  filePath?: string; 
+  filePath?: string;
 }
 
 const Documents = () => {
@@ -32,7 +32,7 @@ const Documents = () => {
       date: 'Jan 15, 2024',
       fileType: 'PDF',
       fileSize: '1.2 MB',
-      filePath: '/documents/project-charter.pdf' 
+      filePath: '/documents/project-charter.pdf'
     },
     {
       id: '2',
@@ -42,7 +42,7 @@ const Documents = () => {
       date: 'Feb 8, 2024',
       fileType: 'PDF',
       fileSize: '2.8 MB',
-      filePath: '../documents/proposal-merged.pdf' 
+      filePath: '../documents/proposal-merged.pdf'
     },
     {
       id: '3',
@@ -52,6 +52,7 @@ const Documents = () => {
       date: 'Feb 20, 2024',
       fileType: 'PDF',
       fileSize: '0.8 MB',
+      filePath: '../documents/list.pdf'
     },
     {
       id: '4',
@@ -61,60 +62,66 @@ const Documents = () => {
       date: 'Mar 5, 2024',
       fileType: 'PDF',
       fileSize: '1.1 MB',
+      filePath: '../documents/README.md'
     },
-    {
-      id: '5',
-      title: 'Testing & Validation Checklist',
-      description: 'Systematic checklist for testing procedures, validation criteria, and quality assurance processes.',
-      category: 'reports',
-      date: 'Mar 18, 2024',
-      fileType: 'PDF',
-      fileSize: '0.9 MB',
-    },
+    // {
+    //   id: '5',
+    //   title: 'Testing & Validation Checklist',
+    //   description: 'Systematic checklist for testing procedures, validation criteria, and quality assurance processes.',
+    //   category: 'reports',
+    //   date: 'Mar 18, 2024',
+    //   fileType: 'PDF',
+    //   fileSize: '0.9 MB',
+    // },
     {
       id: '6',
-      title: 'Final Project Document - Member 1',
+      title: 'Final Project Document - IT21319792 Gunarathna N.W.P.B.M.',
       description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 1.',
       category: 'papers',
       date: 'Apr 12, 2024',
       fileType: 'PDF',
       fileSize: '3.2 MB',
+      filePath: '../documents/IT21319792.pdf'
     },
     {
       id: '7',
-      title: 'Final Project Document - Member 2',
+      title: 'Final Project Document - IT21167232 Anjalie P.M.R.S',
       description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 2.',
       category: 'papers',
       date: 'Apr 12, 2024',
       fileType: 'PDF',
       fileSize: '2.9 MB',
+      filePath: '../documents/IT21167232.pdf'
     },
     {
       id: '8',
-      title: 'Final Project Document - Member 3',
+      title: 'Final Project Document - IT21167232 Thennakoon T.M.I.C',
       description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 3.',
       category: 'papers',
       date: 'Apr 12, 2024',
       fileType: 'PDF',
       fileSize: '3.1 MB',
+      filePath: '../documents/IT21170966.pdf'
     },
     {
       id: '9',
-      title: 'Final Project Document - Member 4',
+      title: 'Final Project Document - IT21158186 Pinsara A.R.D',
       description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 4.',
       category: 'papers',
       date: 'Apr 12, 2024',
       fileType: 'PDF',
       fileSize: '2.8 MB',
+      filePath: '../documents/IT21158186.pdf'
     },
     {
       id: '10',
-      title: 'Consolidated Final Project Report',
+      title: 'Group Final Project Report',
       description: 'The main project document consolidating all individual contributions, findings, and comprehensive project outcomes.',
       category: 'reports',
       date: 'Apr 25, 2024',
       fileType: 'PDF',
       fileSize: '8.5 MB',
+       filePath: '../documents/24-25J-047.pdf'
     },
     {
       id: '11',
@@ -155,11 +162,11 @@ const Documents = () => {
   ];
 
   const filteredDocuments = documents
-    .filter(doc => 
+    .filter(doc =>
       activeCategory === 'all' || doc.category === activeCategory
     )
-    .filter(doc => 
-      doc.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    .filter(doc =>
+      doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doc.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
@@ -190,7 +197,7 @@ const Documents = () => {
       {/* Header */}
       <Section background="primary">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold font-serif mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -198,7 +205,7 @@ const Documents = () => {
           >
             Document Repository
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -262,11 +269,10 @@ const Documents = () => {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 text-sm rounded-full transition-colors ${
-                  activeCategory === category.id
+                className={`px-4 py-2 text-sm rounded-full transition-colors ${activeCategory === category.id
                     ? 'bg-primary-700 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {category.label}
               </button>
@@ -297,8 +303,8 @@ const Documents = () => {
                             <p className="text-gray-600 mb-3">{doc.description}</p>
                           </div>
                           <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                            {doc.category === 'papers' ? 'Individual Reports' : 
-                             doc.category === 'data' ? 'Data Sets' : 'Reports'}
+                            {doc.category === 'papers' ? 'Individual Reports' :
+                              doc.category === 'data' ? 'Data Sets' : 'Reports'}
                           </span>
                         </div>
                         <div className="flex items-center justify-between mt-4">
@@ -306,11 +312,11 @@ const Documents = () => {
                             <span className="mr-4">Published: {doc.date}</span>
                             <span>{doc.fileType}, {doc.fileSize}</span>
                           </div>
-                          <Button 
-                            variant="outline" 
+                          <Button
+                            variant="outline"
                             icon={<Download size={16} />}
                             size="sm"
-                             href={doc.filePath}
+                            href={doc.filePath}
                           >
                             Download
                           </Button>
@@ -351,8 +357,8 @@ const Documents = () => {
                   <p className="text-gray-600 text-sm mb-4">{doc.description.substring(0, 100)}...</p>
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-500">{doc.fileType}, {doc.fileSize}</span>
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       size="sm"
                       icon={<Download size={16} />}
                       iconPosition="right"
@@ -375,8 +381,8 @@ const Documents = () => {
             If you need access to specific research documents that are not listed here,
             please submit a request and our team will get back to you.
           </p>
-          <Button 
-            to="/contact" 
+          <Button
+            to="/contact"
             variant="primary"
           >
             Request Documents
