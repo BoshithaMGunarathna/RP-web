@@ -24,75 +24,129 @@ const Documents = () => {
   const documents: Document[] = [
     {
       id: '1',
-      title: 'Initial Research Findings',
-      description: 'This paper presents the initial findings of our research project, outlining key discoveries and their implications.',
-      category: 'papers',
-      date: 'Jan 15, 2023',
+      title: 'Project Charter',
+      description: 'The foundational document outlining project objectives, scope, stakeholders, and high-level requirements for the research initiative.',
+      category: 'reports',
+      date: 'Jan 15, 2024',
       fileType: 'PDF',
-      fileSize: '2.4 MB',
+      fileSize: '1.2 MB',
     },
     {
       id: '2',
-      title: 'Methodology Overview',
-      description: 'A comprehensive overview of the methodologies employed in our research, including analytical approaches and data collection techniques.',
-      category: 'papers',
-      date: 'Mar 22, 2023',
+      title: 'Project Proposal Document',
+      description: 'Comprehensive proposal detailing the research methodology, timeline, budget, and expected outcomes of the project.',
+      category: 'reports',
+      date: 'Feb 8, 2024',
       fileType: 'PDF',
-      fileSize: '3.1 MB',
+      fileSize: '2.8 MB',
     },
     {
       id: '3',
-      title: 'Quarterly Progress Report Q1 2023',
-      description: 'Detailed report of research progress during the first quarter of 2023, including milestones achieved and challenges encountered.',
+      title: 'Project Planning Checklist',
+      description: 'Detailed checklist covering all planning phase activities, milestones, and deliverables to ensure project success.',
       category: 'reports',
-      date: 'Apr 5, 2023',
+      date: 'Feb 20, 2024',
       fileType: 'PDF',
-      fileSize: '4.7 MB',
+      fileSize: '0.8 MB',
     },
     {
       id: '4',
-      title: 'Conference Presentation',
-      description: 'Slides from our presentation at the International Conference on Research Innovation, highlighting key aspects of our work.',
-      category: 'presentations',
-      date: 'May 18, 2023',
-      fileType: 'PPTX',
-      fileSize: '8.2 MB',
+      title: 'Implementation Checklist',
+      description: 'Comprehensive checklist for the implementation phase, including task dependencies, quality gates, and progress tracking.',
+      category: 'reports',
+      date: 'Mar 5, 2024',
+      fileType: 'PDF',
+      fileSize: '1.1 MB',
     },
     {
       id: '5',
-      title: 'Experimental Data Set',
-      description: 'Raw data collected during our experimental phase, organized and annotated for analysis and verification.',
-      category: 'data',
-      date: 'Jun 30, 2023',
-      fileType: 'CSV',
-      fileSize: '15.6 MB',
+      title: 'Testing & Validation Checklist',
+      description: 'Systematic checklist for testing procedures, validation criteria, and quality assurance processes.',
+      category: 'reports',
+      date: 'Mar 18, 2024',
+      fileType: 'PDF',
+      fileSize: '0.9 MB',
     },
     {
       id: '6',
-      title: 'Theoretical Framework',
-      description: 'An examination of the theoretical underpinnings of our research, contextualizing our work within existing academic literature.',
+      title: 'Final Project Document - Member 1',
+      description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 1.',
       category: 'papers',
-      date: 'Aug 12, 2023',
+      date: 'Apr 12, 2024',
+      fileType: 'PDF',
+      fileSize: '3.2 MB',
+    },
+    {
+      id: '7',
+      title: 'Final Project Document - Member 2',
+      description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 2.',
+      category: 'papers',
+      date: 'Apr 12, 2024',
       fileType: 'PDF',
       fileSize: '2.9 MB',
     },
     {
-      id: '7',
-      title: 'Quarterly Progress Report Q2 2023',
-      description: 'Summary of research activities and outcomes during the second quarter of 2023.',
-      category: 'reports',
-      date: 'Jul 7, 2023',
+      id: '8',
+      title: 'Final Project Document - Member 3',
+      description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 3.',
+      category: 'papers',
+      date: 'Apr 12, 2024',
       fileType: 'PDF',
-      fileSize: '5.1 MB',
+      fileSize: '3.1 MB',
     },
     {
-      id: '8',
-      title: 'Workshop Materials',
-      description: 'Educational materials prepared for the research workshop conducted for stakeholders and collaborators.',
-      category: 'presentations',
-      date: 'Sep 25, 2023',
-      fileType: 'ZIP',
-      fileSize: '12.3 MB',
+      id: '9',
+      title: 'Final Project Document - Member 4',
+      description: 'Individual contribution document detailing research findings, analysis, and conclusions from team member 4.',
+      category: 'papers',
+      date: 'Apr 12, 2024',
+      fileType: 'PDF',
+      fileSize: '2.8 MB',
+    },
+    {
+      id: '10',
+      title: 'Consolidated Final Project Report',
+      description: 'The main project document consolidating all individual contributions, findings, and comprehensive project outcomes.',
+      category: 'reports',
+      date: 'Apr 25, 2024',
+      fileType: 'PDF',
+      fileSize: '8.5 MB',
+    },
+    {
+      id: '11',
+      title: 'Voice Data Set - Member 1',
+      description: 'Comprehensive voice data collection and analysis dataset contributed by team member 1 for the research project.',
+      category: 'data',
+      date: 'Mar 30, 2024',
+      fileType: 'Kaggle Dataset',
+      fileSize: 'Online',
+    },
+    {
+      id: '12',
+      title: 'Voice Data Set - Member 2',
+      description: 'Comprehensive voice data collection and analysis dataset contributed by team member 2 for the research project.',
+      category: 'data',
+      date: 'Mar 30, 2024',
+      fileType: 'Kaggle Dataset',
+      fileSize: 'Online',
+    },
+    {
+      id: '13',
+      title: 'Voice Data Set - Member 3',
+      description: 'Comprehensive voice data collection and analysis dataset contributed by team member 3 for the research project.',
+      category: 'data',
+      date: 'Mar 30, 2024',
+      fileType: 'Kaggle Dataset',
+      fileSize: 'Online',
+    },
+    {
+      id: '14',
+      title: 'Voice Data Set - Member 4',
+      description: 'Comprehensive voice data collection and analysis dataset contributed by team member 4 for the research project.',
+      category: 'data',
+      date: 'Mar 30, 2024',
+      fileType: 'Kaggle Dataset',
+      fileSize: 'Online',
     },
   ];
 
@@ -107,9 +161,9 @@ const Documents = () => {
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case 'papers':
-        return <FileText size={16} />;
       case 'reports':
+        return <FileText size={16} />;
+      case 'papers':
         return <FileText size={16} />;
       case 'presentations':
         return <FileText size={16} />;
@@ -122,9 +176,8 @@ const Documents = () => {
 
   const categories: { id: DocumentCategory; label: string }[] = [
     { id: 'all', label: 'All Documents' },
-    { id: 'papers', label: 'Research Papers' },
+    { id: 'papers', label: 'Individual Reports' },
     { id: 'reports', label: 'Reports' },
-    { id: 'presentations', label: 'Presentations' },
     { id: 'data', label: 'Data Sets' },
   ];
 
@@ -240,7 +293,8 @@ const Documents = () => {
                             <p className="text-gray-600 mb-3">{doc.description}</p>
                           </div>
                           <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                            {doc.category}
+                            {doc.category === 'papers' ? 'Individual Reports' : 
+                             doc.category === 'data' ? 'Data Sets' : 'Reports'}
                           </span>
                         </div>
                         <div className="flex items-center justify-between mt-4">
