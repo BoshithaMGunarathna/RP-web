@@ -131,6 +131,7 @@ const Documents = () => {
       date: 'Mar 30, 2024',
       fileType: 'Kaggle Dataset',
       fileSize: 'Online',
+      filePath: 'https://www.kaggle.com/datasets/swarupakulkarni/voicedata'
     },
     {
       id: '12',
