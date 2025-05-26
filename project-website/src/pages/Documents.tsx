@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, Download, Search, Filter, X } from 'lucide-react';
+import { FileText, Download, Search, Filter, X,ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
@@ -16,6 +16,7 @@ interface Document {
   date: string;
   fileType: string;
   fileSize: string;
+  isExternal?: boolean;
   filePath?: string;
 }
 
@@ -193,6 +194,28 @@ const Documents = () => {
     { id: 'data', label: 'Data Sets' },
   ];
 
+
+   const handleDocumentAction = (doc: Document) => {
+    if (doc.filePath) {
+      if (doc.isExternal) {
+        // Open external links in new tab
+        window.open(doc.filePath, '_blank');
+      } else {
+        // For local PDFs, create a download link
+        const link = document.createElement('a');
+        link.href = doc.filePath;
+        link.download = `${doc.title}.pdf`;
+        link.target = '_blank'; // This will open in new tab if browser allows
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } else {
+      // Fallback for documents without file paths
+      alert(`${doc.title} download will be available soon.`);
+    }
+  };
+
   return (
     <div className="pt-20">
       {/* Header */}
@@ -313,14 +336,15 @@ const Documents = () => {
                             <span className="mr-4">Published: {doc.date}</span>
                             <span>{doc.fileType}, {doc.fileSize}</span>
                           </div>
-                          <Button
-                            variant="outline"
-                            icon={<Download size={16} />}
-                            size="sm"
-                            href={doc.filePath}
-                          >
-                            Download
-                          </Button>
+                          <Button 
+                      variant="ghost" 
+                      size="sm"
+                      icon={doc.category === 'data' ? <ExternalLink size={16} /> : <Download size={16} />}
+                      iconPosition="right"
+                      onClick={() => handleDocumentAction(doc)}
+                    >
+                      {doc.category === 'data' ? 'View' : 'Download'}
+                    </Button>
                         </div>
                       </div>
                     </div>
