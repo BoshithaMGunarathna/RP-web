@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import pdf from '../public/documents/proposal merged.pdf'; // Example import for a PDF file
 
 type DocumentCategory = 'all' | 'papers' | 'reports' | 'presentations' | 'data';
 
@@ -15,6 +16,7 @@ interface Document {
   date: string;
   fileType: string;
   fileSize: string;
+  filePath?: string; 
 }
 
 const Documents = () => {
@@ -30,6 +32,7 @@ const Documents = () => {
       date: 'Jan 15, 2024',
       fileType: 'PDF',
       fileSize: '1.2 MB',
+      filePath: '/documents/project-charter.pdf' 
     },
     {
       id: '2',
@@ -39,6 +42,7 @@ const Documents = () => {
       date: 'Feb 8, 2024',
       fileType: 'PDF',
       fileSize: '2.8 MB',
+      filePath: '../documents/proposal-merged.pdf' 
     },
     {
       id: '3',
@@ -306,6 +310,7 @@ const Documents = () => {
                             variant="outline" 
                             icon={<Download size={16} />}
                             size="sm"
+                             href={doc.filePath}
                           >
                             Download
                           </Button>
