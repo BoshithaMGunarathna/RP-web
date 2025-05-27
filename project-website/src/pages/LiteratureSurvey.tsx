@@ -9,14 +9,14 @@ const LiteratureSurvey: React.FC = () => {
         <div className="h-1 w-24 bg-blue-600"></div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Main Content */}
-        <div className="lg:col-span-2 space-y-8"> {/* Slightly increased space for breathing */}
-
+      {/* Unified container for main content + sidebar */}
+      <div className="flex flex-col lg:flex-row gap-4">
+        {/* Main Content (takes 2/3 width on lg) */}
+        <div className="xl:flex-[2] space-y-8">
           {/* Literature Content */}
           <div className="prose prose-gray max-w-none">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <p className="text-gray-800 leading-relaxed mb-6">
+              <p className="text-gray-800 leading-relaxed mb-6 justify-items">
                 Recent advancements in AI, NLP, and computer vision have significantly improved automated interview systems. 
                 Traditional resume screening techniques have evolved with transformer-based models like BERT, achieving high 
                 accuracy in skill extraction but still facing issues like implicit skill gaps and bias{' '}
@@ -24,9 +24,6 @@ const LiteratureSurvey: React.FC = () => {
                 observation, with computer vision tools analyzing attire and facial expressions, yet most systems treat technical 
                 and behavioral assessments separately{' '}
                 <span className="text-blue-600 font-medium">[2]</span>.
-              </p>
-
-              <p className="text-gray-800 leading-relaxed mb-6">
                 Voice-based confidence assessment has advanced from simple acoustic analysis to hybrid models that combine 
                 speech features and semantic analysis using deep learning, improving classification accuracy and reducing 
                 cultural misinterpretation{' '}
@@ -109,81 +106,69 @@ const LiteratureSurvey: React.FC = () => {
           </div>
         </div>
 
-        {/* Sidebar */}
-        {/* Sidebar */}
-<div className="space-y-6">
-  {/* Graph/Chart Section */}
-  <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
-    <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-4 py-3 border-b border-gray-200">
-      <h3 className="font-semibold text-gray-900">Research Trends</h3>
-    </div>
-    <div className="p-4">
-      <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
-        <div className="text-center">
-          <img src="graph.png" alt="Research Trends Graph" className="max-h-full max-w-full" />
-        </div>
-      </div>
-      <p className="text-xs text-gray-600 mt-3 text-center">
-        Figure 1: Effectiveness of the automated interview systems
-      </p>
-    </div>
-  </div>
+        {/* Sidebar (takes 1/3 width on lg) */}
+        <aside className="lg:flex-1 space-y-7">
+          {/* Graph/Chart Section */}
+          <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-4 py-3 border-b border-gray-200">
+              <h3 className="font-semibold text-gray-900">Research Trends</h3>
+            </div>
+            <div className="p-4">
+              <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
+                <img src="graph.png" alt="Research Trends Graph" className="max-h-full max-w-full" />
+              </div>
+              <p className="text-xs text-gray-600 mt-3 text-center">
+                Figure 1: Effectiveness of the automated interview systems
+              </p>
+            </div>
+          </div>
 
-  {/* Research Gap Table */}
-  <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
-    <h3 className="font-semibold text-gray-900 mb-3">Research Gap: Technology Comparison</h3>
-    <table className="w-full text-sm text-left text-gray-700">
-      <thead className="text-xs text-gray-600 uppercase bg-gray-50">
-        <tr>
-          <th className="py-2 px-3 border border-gray-200">Function</th>
-          <th className="py-2 px-3 border border-gray-200">Research Paper 1</th>
-          <th className="py-2 px-3 border border-gray-200">Research Paper 2</th>
-          <th className="py-2 px-3 border border-gray-200">Research Paper 3</th>
-          <th className="py-2 px-3 border border-gray-200">Proposed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="border border-gray-200">
-          <td className="py-2 px-3 border border-gray-200 font-medium">Analysis of Tone</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-        </tr>
-        <tr className="border border-gray-200 bg-gray-50">
-          <td className="py-2 px-3 border border-gray-200 font-medium">Analysis of Pitch</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-        </tr>
-        <tr className="border border-gray-200">
-          <td className="py-2 px-3 border border-gray-200 font-medium">Analysis of Frequency</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-        </tr>
-        <tr className="border border-gray-200 bg-gray-50">
-          <td className="py-2 px-3 border border-gray-200 font-medium">Correlation with Personality Traits</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-        </tr>
-        <tr className="border border-gray-200">
-          <td className="py-2 px-3 border border-gray-200 font-medium">Confidence Level Indicators</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">X</td>
-          <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
-        </tr>
-      </tbody>
-    </table>
-    <p className="text-xs text-gray-500 mt-2 italic">Table 2: Research Gap</p>
-  </div>
-</div>
-
+          {/* Research Gap Table */}
+          <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-4">
+            <h3 className="font-semibold text-gray-900 mb-3">Research Gap: Technology Comparison</h3>
+            <table className="w-full text-sm text-left text-gray-700">
+              <thead className="text-xs text-gray-600 uppercase bg-gray-50">
+                <tr>
+                  <th className="py-2 px-3 border border-gray-200">Function</th>
+                  <th className="py-2 px-3 border border-gray-200">Research Paper 1</th>
+                  <th className="py-2 px-3 border border-gray-200">Research Paper 2</th>
+                  <th className="py-2 px-3 border border-gray-200">Research Paper 3</th>
+                  <th className="py-2 px-3 border border-gray-200">Proposed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border border-gray-200">
+                  <td className="py-2 px-3 border border-gray-200 font-medium">Analysis of Tone</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                </tr>
+                <tr className="border border-gray-200 bg-gray-50">
+                  <td className="py-2 px-3 border border-gray-200 font-medium">Real-time Emotion Detection</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                </tr>
+                <tr className="border border-gray-200">
+                  <td className="py-2 px-3 border border-gray-200 font-medium">Code Complexity Analysis</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                </tr>
+                <tr className="border border-gray-200 bg-gray-50">
+                  <td className="py-2 px-3 border border-gray-200 font-medium">Gender Bias Mitigation</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">X</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                  <td className="py-2 px-3 border border-gray-200 text-center">✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </aside>
       </div>
     </div>
   );
