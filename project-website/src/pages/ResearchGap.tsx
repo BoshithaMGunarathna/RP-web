@@ -4,37 +4,37 @@ import {TrendingUp, Gamepad2, Globe, Code2, Share2, Brain } from 'lucide-react';
 const researchGaps = [
   {
     title: 'Identification & classification',
-    icon: <Brain className="text-green-600 w-8 h-8" />,
+    icon: <Brain className="text-blue-600 w-8 h-8" />,
     description:
       'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
   },
   {
     title: 'Severity assessment',
-    icon: <TrendingUp className="text-green-600 w-8 h-8" />,
+    icon: <TrendingUp className="text-blue-600 w-8 h-8" />,
     description:
       'Stress detection studies lack real-world coding contexts. Tools fail to assess stress impact on code quality and decision-making.',
   },
   {
     title: 'Information sharing',
-    icon: <Share2 className="text-green-600 w-8 h-8" />,
+    icon: <Share2 className="text-blue-600 w-8 h-8" />,
     description:
       'Assessments for code, stress, confidence, and professionalism are siloed. No unified system exists to deliver holistic evaluation.',
   },
   {
     title: 'Real-world interview data',
-    icon: <Code2 className="text-green-600 w-8 h-8" />,
+    icon: <Code2 className="text-blue-600 w-8 h-8" />,
     description:
       'Controlled datasets dominate research. Real-time, diverse interview data capturing spontaneous behavior under pressure is missing.',
   },
   {
     title: 'Cultural & individual variability',
-    icon: <Globe className="text-green-600 w-8 h-8" />,
+    icon: <Globe className="text-blue-600 w-8 h-8" />,
     description:
       'Current models apply uniform confidence thresholds, ignoring cultural and personal vocal differences, harming fairness in global assessments.',
   },
   {
     title: 'Gamified & adaptive assessments',
-    icon: <Gamepad2 className="text-green-600 w-8 h-8" />,
+    icon: <Gamepad2 className="text-blue-600 w-8 h-8" />,
     description:
       'Gamification is underutilized in interviews. There’s a lack of adaptive systems that enhance engagement and resilience under evaluation.',
   },
