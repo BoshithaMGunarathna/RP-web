@@ -9,7 +9,7 @@ import ResearchProblemSolution from './ResearchProblemSolution';
 
 const Domain = () => {
   return (
-    <div className="pt-20">
+    <div className="pt-20 mb-8">
       {/* Header */}
       <Section background="primary">
         <div className="max-w-4xl mx-auto text-center">
@@ -34,7 +34,7 @@ const Domain = () => {
       </Section>
 
       {/* Introduction */}
-      <Section>
+      {/* <Section>
         <div className="max-w-7xl mx-auto  grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -85,7 +85,7 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
             />
           </motion.div>
         </div>
-      </Section>
+      </Section> */}
           
 
       <LiteratureSurvey/>
