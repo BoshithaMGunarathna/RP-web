@@ -4,6 +4,7 @@ import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import LiteratureSurvey from './LiteratureSurvey';
+import ResearchGap from './ResearchGap';
 
 const Domain = () => {
   return (
@@ -82,6 +83,7 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
       </Section>
 
       <LiteratureSurvey/>
+      <ResearchGap/>
 
       {/* Research Areas */}
       <Section background="light" title="Key Research Areas" centered>
