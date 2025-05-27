@@ -1,4 +1,4 @@
-import { Calendar } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Timeline, { TimelineItem } from '../components/ui/Timeline';
@@ -8,11 +8,12 @@ const Milestones = () => {
   const timelineItems: TimelineItem[] = [
     {
       id: '1',
-      date: 'January 2023',
-      title: 'Project Inception',
+      date: 'March 2021',
+      title: 'Project Proposal',
       description: 'Initial research proposal accepted and funding secured for the project.',
       status: 'completed',
     },
+    
     {
       id: '2',
       date: 'March 2023',
