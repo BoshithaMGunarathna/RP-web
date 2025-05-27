@@ -2,7 +2,7 @@ import React from 'react';
 
 const LiteratureSurvey: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-white">
+    <div className="max-w-7xl mx-auto py-0 bg-white">
       <div className="mb-8">
         <h2 className="text-3xl font-bold font-serif mb-6">Literature Survey</h2>
         <div className="h-1 w-24 bg-blue-600"></div>

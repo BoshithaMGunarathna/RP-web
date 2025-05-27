@@ -43,7 +43,7 @@ const researchGaps = [
 
 const ResearchGap: React.FC = () => {
   return (
-    <section className="bg-white py-12 px-6 max-w-7xl mx-auto text-center">
+    <section className="bg-white py-0 px-6 max-w-7xl mx-auto text-center">
       <h2 className="text-3xl font-bold font-serif mb-3">Research Gap</h2>
       <p className="text-gray-700 mb-12">
         Following areas are the research gaps found in most of the recent researches.
