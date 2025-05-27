@@ -6,6 +6,7 @@ import Card from '../components/ui/Card';
 import LiteratureSurvey from './LiteratureSurvey';
 import ResearchGap from './ResearchGap';
 import ResearchProblemSolution from './ResearchProblemSolution';
+import ResearchObjectives from './Objective';
 
 const Domain = () => {
   return (
@@ -91,6 +92,7 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
       <LiteratureSurvey/>
       <ResearchGap/>
       <ResearchProblemSolution/>
+      <ResearchObjectives/>
 
       {/* Research Areas */}
       {/* <Section background="light" title="Key Research Areas" centered>
