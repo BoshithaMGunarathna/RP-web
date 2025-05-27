@@ -16,7 +16,7 @@ const LiteratureSurvey: React.FC = () => {
           {/* Literature Content */}
           <div className="prose prose-gray max-w-none">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-              <p className="text-gray-800 leading-relaxed mb-6 justify-items">
+              <p className="text-gray-800 leading-relaxed mb-6  text-justify">
                 Recent advancements in AI, NLP, and computer vision have significantly improved automated interview systems. 
                 Traditional resume screening techniques have evolved with transformer-based models like BERT, achieving high 
                 accuracy in skill extraction but still facing issues like implicit skill gaps and bias{' '}
@@ -33,7 +33,7 @@ const LiteratureSurvey: React.FC = () => {
                 <span className="text-blue-600 font-medium">[4]</span>.
               </p>
 
-              <p className="text-gray-800 leading-relaxed mb-6">
+              <p className="text-gray-800 leading-relaxed mb-6  text-justify">
                 Automated code assessment tools have historically emphasized correctness over quality. Recent systems now 
                 evaluate maintainability using metrics like Cyclomatic Complexity and Cognitive Function Complexity, offering 
                 a more complete view of coding proficiency{' '}
@@ -47,56 +47,56 @@ const LiteratureSurvey: React.FC = () => {
               {/* References */}
               <div className="space-y-2 mt-8 text-xs text-gray-700 leading-snug">
                 <div className="flex">
-                  <span className="text-blue-600 font-semibold min-w-[2rem]">[1]</span>
-                  <span>
+                  <span className="text-blue-600 font-semibold min-w-[2rem] text-justify">[1]</span>
+                  <span className='text-justify'>
                     J. Devlin et al., "BERT: Pre-training of deep bidirectional transformers for language understanding," 
                     <em> Proc. NAACL-HLT</em>, pp. 4171–4186, 2019.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[2]</span>
-                  <span>
+                  <span className='text-justify'>
                     L. Wang, "CNN-based attire classification," <em>IEEE Trans. Affective Comput.</em>, 
                     vol. 12, no. 3, pp. 500–509, 2021.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[3]</span>
-                  <span>
+                  <span className='text-justify'>
                     M. Gupta, "Hybrid voice-NLP models for confidence assessment," <em>IEEE Trans. Human-Mach. Syst.</em>, 
                     vol. 52, no. 1, pp. 123–130, 2022.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[4]</span>
-                  <span>
+                  <span className='text-justify'>
                     K. Kim, "Emotion detection from webcam using CNN," <em>Proc. CVPR Workshops</em>, 
                     pp. 1200–1205, 2021.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[5]</span>
-                  <span>
+                  <span className='text-justify'>
                     N. Kumar, "Multi-metric code evaluation," <em>IEEE Softw.</em>, vol. 39, no. 3, pp. 56–63, 2022.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[6]</span>
-                  <span>
+                  <span className='text-justify'>
                     L. Wu et al., "Gender effects in vocal confidence perception," <em>J. Acoust. Soc. Am.</em>, 
                     vol. 146, no. 5, pp. 3301–3312, 2019.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[7]</span>
-                  <span>
+                  <span className='text-justify'>
                     D. Matsumoto and H. Hwang, "Cultural influences on voice expression," <em>Emotion Rev.</em>, 
                     vol. 8, no. 2, pp. 123–130, 2016.
                   </span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-600 font-semibold min-w-[2rem]">[8]</span>
-                  <span>
+                  <span className='text-justify'>
                     Internal Validation Report, "Integrated interview system testing results," 2024.
                   </span>
                 </div>
