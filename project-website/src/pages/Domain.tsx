@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
+import LiteratureSurvey from './LiteratureSurvey';
 
 const Domain = () => {
   return (
@@ -80,6 +81,8 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
         </div>
       </Section>
 
+      <LiteratureSurvey/>
+
       {/* Research Areas */}
       <Section background="light" title="Key Research Areas" centered>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -125,64 +128,81 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
       </Section>
 
       {/* Methodology */}
-      <Section title="Our Methodology" subtitle="A rigorous approach to research and development">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <img 
-              src="https://images.pexels.com/photos/3912976/pexels-photo-3912976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-              alt="Research methodology" 
-              className="rounded-lg shadow-lg"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h3 className="text-2xl font-bold mb-4">Rigorous and Innovative</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              Our research methodology combines rigorous scientific approaches with innovative 
-              thinking to tackle complex problems. We follow a systematic process that ensures 
-              our results are reliable, reproducible, and impactful.
-            </p>
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-bold text-lg mb-2">1. Problem Definition</h4>
-                <p className="text-gray-700">
-                  Clearly defining the problem and understanding its scope and impact is the 
-                  first step in our research process.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-2">2. Literature Review</h4>
-                <p className="text-gray-700">
-                  Comprehensive review of existing research to build upon prior knowledge 
-                  and identify gaps.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-2">3. Hypothesis Formulation</h4>
-                <p className="text-gray-700">
-                  Developing testable hypotheses based on our understanding of the problem 
-                  and existing knowledge.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-2">4. Experimentation & Analysis</h4>
-                <p className="text-gray-700">
-                  Rigorous testing and analysis using state-of-the-art tools and methodologies.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+      {/* Methodology */}
+<Section title="Our Methodology" subtitle="A rigorous approach to research and development">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <img 
+        src="https://images.pexels.com/photos/3912976/pexels-photo-3912976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+        alt="Research methodology" 
+        className="rounded-lg shadow-lg"
+      />
+    </motion.div>
+    <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h3 className="text-2xl font-bold mb-4">Rigorous and Innovative</h3>
+      <p className="text-gray-700 mb-6 leading-relaxed">
+        Our research methodology combines rigorous scientific approaches with innovative 
+        thinking to tackle complex problems. We follow a systematic process that ensures 
+        our results are reliable, reproducible, and impactful.
+      </p>
+      <div className="space-y-6">
+        <div>
+          <h4 className="font-bold text-lg mb-2">1. Problem Definition</h4>
+          <p className="text-gray-700">
+            Clearly defining the problem and understanding its scope and impact is the 
+            first step in our research process.
+          </p>
         </div>
-      </Section>
+        <div>
+          <h4 className="font-bold text-lg mb-2">2. Literature Review</h4>
+          <p className="text-gray-700">
+            Recent advancements in AI, NLP, and computer vision have significantly improved automated interview systems. Traditional resume screening techniques have evolved with transformer-based models like BERT, achieving high accuracy in skill extraction but still facing issues like implicit skill gaps and bias<sup>[1]</sup>. Professionalism evaluation has moved beyond subjective observation, with computer vision tools analyzing attire and facial expressions, yet most systems treat technical and behavioral assessments separately<sup>[2]</sup>.
+          </p>
+          <p className="text-gray-700 mt-2">
+            Voice-based confidence assessment has advanced from simple acoustic analysis to hybrid models that combine speech features and semantic analysis using deep learning, improving classification accuracy and reducing cultural misinterpretation<sup>[3]</sup>. Gamification in interviews has been shown to enhance candidate engagement and reduce anxiety. When combined with real-time stress detection via webcam-based facial analysis, it provides insights into performance under pressure<sup>[4]</sup>.
+          </p>
+          <p className="text-gray-700 mt-2">
+            Automated code assessment tools have historically emphasized correctness over quality. Recent systems now evaluate maintainability using metrics like Cyclomatic Complexity and Cognitive Function Complexity, offering a more complete view of coding proficiency<sup>[5]</sup>. Lastly, research highlights the importance of accounting for gender and cultural factors in voice analysis to ensure fair and unbiased evaluation<sup>[6],[7],[8]</sup>.
+          </p>
+          <p className="text-xs text-gray-500 mt-4">
+            [1] J. Devlin et al., “BERT: Pre-training of deep bidirectional transformers for language understanding,” Proc. NAACL-HLT, pp. 4171–4186, 2019.<br />
+            [2] L. Wang, “CNN-based attire classification,” IEEE Trans. Affective Comput., vol. 12, no. 3, pp. 500–509, 2021.<br />
+            [3] M. Gupta, “Hybrid voice-NLP models for confidence assessment,” IEEE Trans. Human-Mach. Syst., vol. 52, no. 1, pp. 123–130, 2022.<br />
+            [4] K. Kim, “Emotion detection from webcam using CNN,” Proc. CVPR Workshops, pp. 1200–1205, 2021.<br />
+            [5] N. Kumar, “Multi-metric code evaluation,” IEEE Softw., vol. 39, no. 3, pp. 56–63, 2022.<br />
+            [6] L. Wu et al., “Gender effects in vocal confidence perception,” J. Acoust. Soc. Am., vol. 146, no. 5, pp. 3301–3312, 2019.<br />
+            [7] D. Matsumoto and H. Hwang, “Cultural influences on voice expression,” Emotion Rev., vol. 8, no. 2, pp. 123–130, 2016.<br />
+            [8] Internal Validation Report, “Integrated interview system testing results,” 2024.
+          </p>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg mb-2">3. Hypothesis Formulation</h4>
+          <p className="text-gray-700">
+            Developing testable hypotheses based on our understanding of the problem 
+            and existing knowledge.
+          </p>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg mb-2">4. Experimentation & Analysis</h4>
+          <p className="text-gray-700">
+            Rigorous testing and analysis using state-of-the-art tools and methodologies.
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</Section>
+
 
       {/* Publications */}
       <Section background="light" title="Related Publications" centered>
