@@ -2,26 +2,21 @@ import React from 'react';
 
 const TechnologyCard = ({ name, imageSrc }) => {
   return (
-    <div style={{
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-      padding: '16px',
-      textAlign: 'center',
-      width: '150px',
-      boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-    }}>
-      <img 
-        src={imageSrc} 
-        alt={name} 
-        style={{ 
-          width: '80px', 
-          height: '80px', 
-          objectFit: 'cover', 
-          borderRadius: '50%', 
-          display: 'inline-block' 
-        }} 
+    <div className="p-2 text-center w-[150px]">
+      <img
+        src={imageSrc}
+        alt={name}
+        className="w-20 h-20 object-cover rounded-full inline-block
+                   shadow-lg shadow-gray-400/60"
       />
-      <h3 style={{ marginTop: '12px', fontSize: '16px' }}>{name}</h3>
+      <h3
+        className="mt-3 text-base leading-snug
+                   h-[2.4rem] overflow-hidden text-ellipsis
+                   line-clamp-2 break-words"
+        title={name}
+      >
+        {name}
+      </h3>
     </div>
   );
 };
