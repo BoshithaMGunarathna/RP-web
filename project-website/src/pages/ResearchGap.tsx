@@ -16,41 +16,35 @@ const researchGaps = [
       'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
   },
   {
-    title: 'Identification & Classification of Confidence Levels',
-    icon: <Brain className="text-blue-600 w-6 h-6" />,
+    title: 'Severity Assessment of Stress and Performance Degradation',
+    icon: <AlertTriangle className="text-red-500 w-6 h-6" />,
     description:
-      'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
+      'Stress detection studies lack real-world coding contexts. Tools fail to assess stress impact on code quality and decision-making.',
   },
   {
-    title: 'Identification & Classification of Confidence Levels',
-    icon: <Brain className="text-blue-600 w-6 h-6" />,
+    title: 'Information Integration and Sharing',
+    icon: <Share2 className="text-green-600 w-6 h-6" />,
     description:
-      'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
+      'Assessments for code, stress, confidence, and professionalism are siloed. No unified system exists to deliver holistic evaluation.',
   },
   {
-    title: 'Identification & Classification of Confidence Levels',
-    icon: <Brain className="text-blue-600 w-6 h-6" />,
+    title: 'Lack of Real-World Interview Data',
+    icon: <Code className="text-yellow-600 w-6 h-6" />,
     description:
-      'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
+      'Controlled datasets dominate research. Real-time, diverse interview data capturing spontaneous behavior under pressure is missing.',
   },
   {
-    title: 'Identification & Classification of Confidence Levels',
-    icon: <Brain className="text-blue-600 w-6 h-6" />,
+    title: 'Cultural and Individual Variability in Confidence Expression',
+    icon: <Globe className="text-indigo-600 w-6 h-6" />,
     description:
-      'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
+      'Current models apply uniform confidence thresholds, ignoring cultural and personal vocal differences, harming fairness in global assessments.',
   },
   {
-    title: 'Identification & Classification of Confidence Levels',
-    icon: <Brain className="text-blue-600 w-6 h-6" />,
+    title: 'Limited Application of Gamified & Adaptive Assessments',
+    icon: <Gamepad2 className="text-purple-600 w-6 h-6" />,
     description:
-      'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
+      'Gamification is underutilized in interviews. There’s a lack of adaptive systems that enhance engagement and resilience under evaluation.',
   },
-  {
-    title: 'Identification & Classification of Confidence Levels',
-    icon: <Brain className="text-blue-600 w-6 h-6" />,
-    description:
-      'Confidence is often misclassified as enthusiasm or happiness. Current models lack specialized detection for confidence in professional interviews.',
-  }
 ];
 
 const ResearchGap: React.FC = () => {
