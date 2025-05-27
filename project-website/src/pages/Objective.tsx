@@ -4,37 +4,46 @@ import { Star, Target, Zap, Search, Share2, TrendingUp, CheckCircle } from 'luci
 const objectives = [
   {
     id: 1,
-    title: "Identification & Classification of Confidence Levels",
-    description: "The first objective is to classify confidence levels in professional interviews. We aim to provide a solution for distinguishing genuine confidence from overconfidence or nervousness. In addition, the confidence patterns will be determined using advanced machine learning algorithms to identify the behavioral markers and vocal characteristics that indicate true professional confidence levels.",
+    title: "Assess Personality Traits & Confidence via Vocal Features",
+    description: "Develop algorithms to analyze vocal features and identify personality traits and confidence levels with precision.",
     position: "left",
-    color: "green",
+    color: "blue",
     icon: <Target className="w-5 h-5" />
   },
   {
     id: 2,
-    title: "Real-time Stress Assessment and Performance Impact Analysis",
-    description: "The second objective of this study is to develop a solution to identify stress levels during coding interviews while differentiating its impact on performance. The severity of the stress will also be determined at the same time, and appropriate recommendations will be provided in order to expedite the application of optimal performance measures to prevent possible degradation of code quality.",
+    title: "Gamified Emotional & Technical Skill Evaluation",
+    description: "Integrate emotional analysis and gamified assessments to dynamically evaluate technical abilities under real-time scenarios.",
     position: "right",
     color: "blue",
     icon: <Zap className="w-5 h-5" />
   },
   {
     id: 3,
-    title: "Cultural Adaptation and Personalized Assessment Framework",
-    description: "The third objective is identifying the pattern of confidence expression across different cultural backgrounds, adapting assessment criteria for individual vocal characteristics, and developing personalized evaluation frameworks to ensure fair and accurate assessment regardless of cultural or personal communication styles while maintaining consistent quality standards.",
+    title: "Code Complexity & Maintainability Assessment",
+    description: "Automatically evaluate submitted code to determine its complexity and maintainability using advanced static analysis.",
     position: "left",
-    color: "purple",
+    color: "blue",
     icon: <Search className="w-5 h-5" />
   },
   {
     id: 4,
-    title: "Integrated Information Sharing and Gamified Assessment Platform",
-    description: "The fourth objective is to provide a comprehensive platform to integrate all assessment metrics including confidence, stress, and performance data. We aim to utilize gamification principles to enhance engagement while visualizing the assessment outcomes and providing actionable insights to stakeholders regarding overall candidate evaluation with detailed severity levels.",
+    title: "Video-Based Mock Tests & Cover Letter Screening",
+    description: "Create and analyze mock video interviews and cover letters to assess candidates' background fit and communication skills.",
     position: "right",
-    color: "orange",
+    color: "blue",
     icon: <Share2 className="w-5 h-5" />
+  },
+  {
+    id: 5,
+    title: "Validation Against Traditional Benchmarks",
+    description: "Compare the tool’s assessment results with traditional evaluation methods to validate accuracy, fairness, and efficiency.",
+    position: "left",
+    color: "blue",
+    icon: <CheckCircle className="w-5 h-5" />
   }
 ];
+
 
 const ResearchObjectives = () => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -87,25 +96,18 @@ const ResearchObjectives = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-16 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-4 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-4">
           <div className="inline-flex items-center gap-3 mb-4">
-            <TrendingUp className="w-8 h-8 text-blue-600" />
-            <h1 className="text-4xl font-bold text-gray-800">Research Objectives</h1>
-            <CheckCircle className="w-8 h-8 text-green-600" />
+            <h2 className="text-3xl font-bold font-serif mb-2">Research Objectives</h2>
           </div>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Central Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-0.5 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 h-full rounded-full opacity-30"></div>
-
-          {/* Objectives */}
-          <div className="space-y-16">
+          <div className="space-y-[-10]">
             {objectives.map((objective, index) => {
               const colors = getColorClasses(objective.color);
               const isVisible = visibleItems.includes(index);
@@ -116,7 +118,6 @@ const ResearchObjectives = () => {
                   key={objective.id}
                   className={`flex items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'} relative`}
                 >
-                  {/* Content Card */}
                   <div
                     className={`w-5/12 transform transition-all duration-700 ${
                       isVisible 
@@ -133,7 +134,6 @@ const ResearchObjectives = () => {
                       ${colors.cardBg} ${colors.border}
                       ${hoveredItem === index ? 'shadow-2xl scale-105' : 'shadow-lg scale-100'}
                     `}>
-                      {/* Card Arrow */}
                       <div className={`
                         absolute top-8 w-0 h-0 transition-all duration-300
                         ${isLeft ? '-right-4' : '-left-4'}
@@ -160,8 +160,6 @@ const ResearchObjectives = () => {
                           borderBottomColor: 'transparent'
                         }}></div>
                       </div>
-
-                      {/* Icon Badge */}
                       <div className={`
                         inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 text-sm font-semibold
                         ${colors.bg} text-white
@@ -171,8 +169,6 @@ const ResearchObjectives = () => {
                         {objective.icon}
                         <span>Objective {objective.id}</span>
                       </div>
-
-                      {/* Title */}
                       <h3 className={`
                         text-xl font-bold mb-4 leading-tight transition-colors duration-300
                         ${colors.text}
@@ -181,7 +177,6 @@ const ResearchObjectives = () => {
                         {objective.title}
                       </h3>
 
-                      {/* Description */}
                       <p className={`
                         text-gray-700 leading-relaxed text-justify transition-all duration-300
                         ${hoveredItem === index ? 'text-gray-800 transform translate-x-1' : ''}
@@ -189,7 +184,6 @@ const ResearchObjectives = () => {
                         {objective.description}
                       </p>
 
-                      {/* Highlight Keywords */}
                       <div className={`
                         mt-4 pt-4 border-t border-gray-200 transition-all duration-300
                         ${hoveredItem === index ? 'opacity-100 transform translate-y-0' : 'opacity-70'}
@@ -215,12 +209,16 @@ const ResearchObjectives = () => {
                               {tag}
                             </span>
                           ))}
+                          {objective.id === 5 && ['Benchmarking', 'Validation', 'Accuracy'].map(tag => (
+                            <span key={tag} className={`px-2 py-1 text-xs rounded-full ${colors.bg} bg-opacity-20 ${colors.accent} font-medium`}>
+                              {tag}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Timeline Node */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
                     <div className={`
                       w-12 h-12 rounded-full border-4 border-white shadow-lg transition-all duration-500
@@ -236,7 +234,6 @@ const ResearchObjectives = () => {
                       </div>
                     </div>
                     
-                    {/* Pulse Effect */}
                     {hoveredItem === index && (
                       <div className={`
                         absolute inset-0 w-12 h-12 rounded-full animate-ping
@@ -244,8 +241,6 @@ const ResearchObjectives = () => {
                       `}></div>
                     )}
                   </div>
-
-                  {/* Empty Space for Alignment */}
                   <div className="w-5/12"></div>
                 </div>
               );
@@ -253,25 +248,6 @@ const ResearchObjectives = () => {
           </div>
         </div>
 
-        {/* Summary Stats */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-6 px-8 py-4 bg-white rounded-2xl shadow-lg border">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">4</div>
-              <div className="text-sm text-gray-600">Key Objectives</div>
-            </div>
-            <div className="w-px h-8 bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">100%</div>
-              <div className="text-sm text-gray-600">Coverage</div>
-            </div>
-            <div className="w-px h-8 bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600">∞</div>
-              <div className="text-sm text-gray-600">Impact</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
