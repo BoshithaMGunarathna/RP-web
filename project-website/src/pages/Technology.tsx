@@ -15,11 +15,18 @@ const technologies = [
 
 const Technology = () => {
   return (
-    <div className="grid grid-cols-4 grid-rows-2 gap-5 justify-center">
-      {technologies.slice(0, 8).map((tech) => (
-        <TechnologyCard key={tech.name} name={tech.name} imageSrc={tech.imageSrc} />
-      ))}
-    </div>
+     <section className="bg-blue-50  py-6 px-6 max-w-7xl rounded-xl mx-auto">
+        <div className="mb-8">
+        <h2 className="text-3xl font-bold font-serif mb-6">Technologies Used</h2>
+        <div className="h-1 w-24 bg-blue-600"></div>
+      </div>
+        <div className="grid grid-cols-4 grid-rows-2 gap-4 justify-center">
+            {technologies.slice(0, 8).map((tech) => (
+                <TechnologyCard key={tech.name} name={tech.name} imageSrc={tech.imageSrc} />
+            ))}
+        </div>
+    </section>
+   
   );
 };
 

@@ -6,9 +6,9 @@ const TechnologyCard = ({ name, imageSrc }) => {
       <img
         src={imageSrc}
         alt={name}
-        className="w-20 h-20 object-cover rounded-full inline-block
-                   shadow-lg shadow-gray-400/60"
-      />
+        className="w-24 h-24  rounded-full inline-block
+                    shadow-lg shadow-gray-400/60" />
+
       <h3
         className="mt-3 text-base leading-snug
                    h-[2.4rem] overflow-hidden text-ellipsis
