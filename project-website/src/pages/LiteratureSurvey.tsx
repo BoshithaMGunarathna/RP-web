@@ -103,7 +103,7 @@ const LiteratureSurvey: React.FC = () => {
           </div>
         </div>
 
-        <aside className="lg:flex-1 py-8 space-y-11">
+        <aside className="lg:flex-1 py-8 space-y-4">
           <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
             <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-4 py-3 border-b border-gray-200">
               <h3 className="font-semibold text-gray-900">Research Trends</h3>
