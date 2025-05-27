@@ -7,6 +7,7 @@ import LiteratureSurvey from './LiteratureSurvey';
 import ResearchGap from './ResearchGap';
 import ResearchProblemSolution from './ResearchProblemSolution';
 import ResearchObjectives from './Objective';
+import Methodology from './Methodology';
 
 const Domain = () => {
   return (
@@ -93,6 +94,7 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
       <ResearchGap/>
       <ResearchProblemSolution/>
       <ResearchObjectives/>
+      <Methodology/>
 
       {/* Research Areas */}
       {/* <Section background="light" title="Key Research Areas" centered>
