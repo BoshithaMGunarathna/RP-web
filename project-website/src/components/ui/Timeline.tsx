@@ -88,7 +88,6 @@ const Timeline: React.FC<TimelineProps> = ({ items, className = '' }) => {
 
   return (
     <div className={`relative ${className}`} ref={timelineRef}>
-      {/* Animated Vertical Line */}
       <div 
         className="absolute left-4 md:left-1/2 w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-slate-300 origin-top transform -translate-x-1/2 transition-all duration-300 ease-out rounded-full"
         style={{ 
@@ -157,7 +156,7 @@ const Timeline: React.FC<TimelineProps> = ({ items, className = '' }) => {
                   </>
                 )}
                 
-                <div className="mt-4 flex items-center">
+                {/* <div className="mt-4 flex items-center">
                   <div className={`w-2 h-2 rounded-full mr-2 ${
                     item.status === 'completed' ? 'bg-blue-500' : 
                     item.status === 'in-progress' ? 'bg-blue-400' : 
@@ -170,14 +169,14 @@ const Timeline: React.FC<TimelineProps> = ({ items, className = '' }) => {
                   }`}>
                     {item.status?.replace('-', ' ') || 'completed'}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         ))}
       </div>
       
-      {items.some(item => item.progress !== undefined) && (
+      {/* {items.some(item => item.progress !== undefined) && (
         <div className="mt-16 pt-8 border-t border-blue-100">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
             <div className="flex justify-between items-center mb-4">
@@ -215,7 +214,7 @@ const Timeline: React.FC<TimelineProps> = ({ items, className = '' }) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
