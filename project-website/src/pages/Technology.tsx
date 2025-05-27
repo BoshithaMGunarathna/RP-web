@@ -1,11 +1,9 @@
 import React from 'react';
 import TechnologyCard from '../components/ui/TechnologyCard';
 
-
 const technologies = [
   { name: 'React', imageSrc: '/react.png' },
   { name: 'Node.js', imageSrc: '/node.png' },
-//   { name: 'Express.js', imageSrc: '/node.png' },
   { name: 'Python', imageSrc: '/python.png' },
   { name: 'Tensorflow', imageSrc: '/tensorflow.png' },
   { name: 'Open CV', imageSrc: '/opencv.png' },
@@ -17,8 +15,8 @@ const technologies = [
 
 const Technology = () => {
   return (
-    <div style={{ display: 'flex', gap: '20px' }}>
-      {technologies.map(tech => (
+    <div className="grid grid-cols-4 grid-rows-2 gap-5 justify-center">
+      {technologies.slice(0, 8).map((tech) => (
         <TechnologyCard key={tech.name} name={tech.name} imageSrc={tech.imageSrc} />
       ))}
     </div>
