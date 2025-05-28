@@ -3,10 +3,16 @@ import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
+import LiteratureSurvey from './LiteratureSurvey';
+import ResearchGap from './ResearchGap';
+import ResearchProblemSolution from './ResearchProblemSolution';
+import ResearchObjectives from './Objective';
+import Methodology from './Methodology';
+import Technology from './Technology';
 
 const Domain = () => {
   return (
-    <div className="pt-20">
+    <div className="pt-20 mb-8">
       {/* Header */}
       <Section background="primary">
         <div className="max-w-4xl mx-auto text-center">
@@ -31,15 +37,19 @@ const Domain = () => {
       </Section>
 
       {/* Introduction */}
-      <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* <Section>
+        <div className="max-w-7xl mx-auto  grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold font-serif mb-6">Our Research Focus</h2>
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold font-serif mb-6">Our Research Focus</h2>
+              <div className="h-1 w-24 bg-blue-600"></div>
+            </div>
+            
             <p className="text-gray-700 mb-6 leading-relaxed">
               Our research focuses on developing a robust and scalable AI-driven candidate evaluation system that mitigates human bias in the recruitment process. Traditional hiring methods are often plagued by subjectivity and inconsistency—our solution leverages advanced technologies like natural language processing, computer vision, and code analysis to deliver fair, data-driven assessments.
 
@@ -78,10 +88,18 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
             />
           </motion.div>
         </div>
-      </Section>
+      </Section> */}
+          
+
+      <LiteratureSurvey/>
+      <ResearchGap/>
+      <ResearchProblemSolution/>
+      <ResearchObjectives/>
+      <Methodology/>
+      <Technology/>
 
       {/* Research Areas */}
-      <Section background="light" title="Key Research Areas" centered>
+      {/* <Section background="light" title="Key Research Areas" centered>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
             <motion.div
@@ -122,10 +140,10 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
             </motion.div>
           ))}
         </div>
-      </Section>
+      </Section> */}
 
       {/* Methodology */}
-      <Section title="Our Methodology" subtitle="A rigorous approach to research and development">
+      {/* <Section title="Our Methodology" subtitle="A rigorous approach to research and development">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -182,10 +200,10 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
             </div>
           </motion.div>
         </div>
-      </Section>
+      </Section> */}
 
       {/* Publications */}
-      <Section background="light" title="Related Publications" centered>
+      {/* <Section background="light" title="Related Publications" centered>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[1, 2].map((i) => (
             <motion.div
@@ -220,10 +238,10 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
         <div className="mt-12 text-center">
           <Button to="/documents" variant="primary">View All Publications</Button>
         </div>
-      </Section>
+      </Section> */}
 
       {/* Call to Action */}
-      <Section background="secondary">
+      {/* <Section background="secondary">
         <div className="text-center max-w-3xl mx-auto">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold font-serif mb-6"
@@ -267,7 +285,7 @@ Our multidisciplinary approach integrates knowledge from machine learning, psych
             </Button>
           </motion.div>
         </div>
-      </Section>
+      </Section> */}
     </div>
   );
 };
