@@ -37,7 +37,7 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
-    
+
     // Clear error when user starts typing
     if (errors[name as keyof FormData]) {
       setErrors(prev => ({
@@ -49,40 +49,40 @@ const Contact = () => {
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = 'Invalid email address';
     }
-    
+
     if (!formData.subject.trim()) {
       newErrors.subject = 'Subject is required';
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 20) {
       newErrors.message = 'Message must be at least 20 characters';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -106,19 +106,19 @@ const Contact = () => {
     {
       icon: <Mail size={24} className="text-primary-700" />,
       title: 'Email',
-      content: 'info@researchproject.com',
-      link: 'mailto:info@researchproject.com',
+      content: 'boshithag@gmail.com',
+      link: 'mailto:boshithag@gmail.com',
     },
     {
       icon: <Phone size={24} className="text-primary-700" />,
       title: 'Phone',
-      content: '+1 (123) 456-7890',
-      link: 'tel:+11234567890',
+      content: '+94 (78) 776-2803',
+      link: 'tel:+94787762803',
     },
     {
       icon: <MapPin size={24} className="text-primary-700" />,
       title: 'Address',
-      content: '123 Research Way, Science Park, University Campus',
+      content: 'New Kandy Rd, Malabe, SLIIT Campus',
       link: 'https://maps.google.com',
     },
     {
@@ -136,12 +136,35 @@ const Contact = () => {
     { value: 'careers', label: 'Career Opportunities' },
   ];
 
+  const faqs = [
+    {
+      question: "How can I access your research publications and datasets?",
+      answer: "Our research publications are available through academic databases and our institutional repository. Datasets may be available upon request for academic research purposes. Please contact us with details about your research project and intended use of the data."
+    },
+    {
+      question: "Do you offer internship or research collaboration opportunities?",
+      answer: "Yes, we welcome qualified students and researchers for internships and collaborative projects. We typically offer positions for undergraduate and graduate students, as well as opportunities for visiting researchers. Please submit your CV and research interests through our contact form."
+    },
+    {
+      question: "Can I visit your research facility for a tour or demonstration?",
+      answer: "We offer guided tours of our research facilities for academic partners, industry collaborators, and educational groups. Tours must be scheduled in advance and are subject to availability. Please contact us at least two weeks before your preferred visit date."
+    },
+    {
+      question: "How can I cite your research in my academic work?",
+      answer: "Please use standard academic citation formats when referencing our work. Full citation information is provided with each publication. If you're using our datasets or methodologies, please ensure proper attribution and consider reaching out to discuss potential collaboration opportunities."
+    },
+    {
+      question: "What types of industry partnerships do you engage in?",
+      answer: "We collaborate with industry partners on applied research projects, technology transfer initiatives, and consulting services. Our partnerships range from short-term consulting to multi-year research programs. Contact us to discuss how we can support your organization's research and development needs."
+    }
+  ];
+
   return (
     <div className="pt-20">
       {/* Header */}
       <Section background="primary">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold font-serif mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -149,7 +172,7 @@ const Contact = () => {
           >
             Contact Us
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl md:text-2xl text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -180,8 +203,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-lg">{item.title}</h3>
                     {item.link ? (
-                      <a 
-                        href={item.link} 
+                      <a
+                        href={item.link}
                         className="text-gray-600 hover:text-primary-700 transition-colors"
                         target={item.title === 'Address' ? '_blank' : undefined}
                         rel={item.title === 'Address' ? 'noopener noreferrer' : undefined}
@@ -203,8 +226,8 @@ const Contact = () => {
                   Follow our research progress and connect with us on social media for the latest updates.
                 </p>
                 <div className="flex space-x-4">
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="bg-primary-100 text-primary-700 hover:bg-primary-200 p-2 rounded-full transition-colors"
                     aria-label="Twitter"
                   >
@@ -212,8 +235,8 @@ const Contact = () => {
                       <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                     </svg>
                   </a>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="bg-primary-100 text-primary-700 hover:bg-primary-200 p-2 rounded-full transition-colors"
                     aria-label="LinkedIn"
                   >
@@ -223,8 +246,8 @@ const Contact = () => {
                       <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                   </a>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="bg-primary-100 text-primary-700 hover:bg-primary-200 p-2 rounded-full transition-colors"
                     aria-label="GitHub"
                   >
@@ -247,7 +270,7 @@ const Contact = () => {
             <Card variant="elevated" className="overflow-hidden">
               <div className="p-6 md:p-8">
                 <h2 className="text-2xl font-bold font-serif mb-6">Send Us a Message</h2>
-                
+
                 {submitSuccess && (
                   <div className="bg-success-50 text-success-700 p-4 rounded-lg mb-6 flex items-start">
                     <div className="mr-3 mt-0.5">
@@ -262,14 +285,14 @@ const Contact = () => {
                     </div>
                   </div>
                 )}
-                
+
                 {submitError && (
                   <div className="bg-error-50 text-error-700 p-4 rounded-lg mb-6 flex items-start">
                     <AlertCircle size={20} className="mr-3 mt-0.5" />
                     <div>
                       <h3 className="font-bold text-lg">Message Could Not Be Sent</h3>
                       <p>There was an error sending your message. Please try again or contact us directly.</p>
-                      <button 
+                      <button
                         className="text-error-700 font-medium underline mt-2"
                         onClick={() => setSubmitError(false)}
                       >
@@ -291,18 +314,17 @@ const Contact = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
-                          errors.name 
-                            ? 'border-error-300 focus:border-error-500 focus:ring-error-200' 
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${errors.name
+                            ? 'border-error-300 focus:border-error-500 focus:ring-error-200'
                             : 'border-gray-300 focus:border-primary-500 focus:ring-primary-200'
-                        }`}
+                          }`}
                         placeholder="Enter your full name"
                       />
                       {errors.name && (
                         <p className="text-error-500 text-sm mt-1">{errors.name}</p>
                       )}
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                         Email Address <span className="text-error-500">*</span>
@@ -313,11 +335,10 @@ const Contact = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
-                          errors.email 
-                            ? 'border-error-300 focus:border-error-500 focus:ring-error-200' 
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${errors.email
+                            ? 'border-error-300 focus:border-error-500 focus:ring-error-200'
                             : 'border-gray-300 focus:border-primary-500 focus:ring-primary-200'
-                        }`}
+                          }`}
                         placeholder="Enter your email"
                       />
                       {errors.email && (
@@ -325,7 +346,7 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="organization" className="block text-gray-700 font-medium mb-2">
@@ -341,7 +362,7 @@ const Contact = () => {
                         placeholder="Company or institution name"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
                         Subject <span className="text-error-500">*</span>
@@ -351,11 +372,10 @@ const Contact = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 appearance-none bg-white ${
-                          errors.subject 
-                            ? 'border-error-300 focus:border-error-500 focus:ring-error-200' 
+                        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 appearance-none bg-white ${errors.subject
+                            ? 'border-error-300 focus:border-error-500 focus:ring-error-200'
                             : 'border-gray-300 focus:border-primary-500 focus:ring-primary-200'
-                        }`}
+                          }`}
                       >
                         <option value="">Select Inquiry Type</option>
                         {inquiryTypes.map(type => (
@@ -369,7 +389,7 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
                       Message <span className="text-error-500">*</span>
@@ -380,20 +400,19 @@ const Contact = () => {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${
-                        errors.message 
-                          ? 'border-error-300 focus:border-error-500 focus:ring-error-200' 
+                      className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ${errors.message
+                          ? 'border-error-300 focus:border-error-500 focus:ring-error-200'
                           : 'border-gray-300 focus:border-primary-500 focus:ring-primary-200'
-                      }`}
+                        }`}
                       placeholder="Please provide details about your inquiry..."
                     ></textarea>
                     {errors.message && (
                       <p className="text-error-500 text-sm mt-1">{errors.message}</p>
                     )}
                   </div>
-                  
+
                   <div className="flex justify-end">
-                    <Button 
+                    <Button
                       type="submit"
                       variant="primary"
                       size="lg"
@@ -425,38 +444,12 @@ const Contact = () => {
               <div className="w-full h-full bg-gray-300 flex items-center justify-center">
                 <div className="text-center p-8">
                   <MapPin size={48} className="mx-auto text-gray-500 mb-4" />
-                  <h3 className="text-xl font-bold mb-2">Map Placeholder</h3>
+                  <h3 className="text-xl font-bold mb-2">SLIIT Campus Location</h3>
                   <p className="text-gray-600">
-                    123 Research Way, Science Park, University Campus
+                    New Kandy Rd, Malabe, SLIIT Campus
                   </p>
                 </div>
               </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card variant="bordered" className="p-5">
-                <h3 className="font-bold mb-2">Directions</h3>
-                <p className="text-gray-600 text-sm">
-                  Located in the Science Park, our facility is easily accessible via public transportation or car.
-                  Parking is available for visitors.
-                </p>
-              </Card>
-              
-              <Card variant="bordered" className="p-5">
-                <h3 className="font-bold mb-2">Visiting Hours</h3>
-                <p className="text-gray-600 text-sm">
-                  Our facility is open for scheduled visits Monday through Friday, 9AM to 5PM.
-                  Please contact us in advance to arrange a visit.
-                </p>
-              </Card>
-              
-              <Card variant="bordered" className="p-5">
-                <h3 className="font-bold mb-2">Tours</h3>
-                <p className="text-gray-600 text-sm">
-                  We offer guided tours of our research facilities for academic partners, industry collaborators,
-                  and educational groups.
-                </p>
-              </Card>
             </div>
           </motion.div>
         </div>
@@ -466,36 +459,34 @@ const Contact = () => {
       <Section title="Frequently Asked Questions">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6">
-            {[1, 2, 3, 4].map((i) => (
+            {faqs.map((faq, index) => (
               <motion.div
-                key={i}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card variant="bordered" className="overflow-hidden">
                   <div className="p-6">
-                    <h3 className="text-lg font-bold mb-3">Frequently Asked Question {i}?</h3>
+                    <h3 className="text-lg font-bold mb-3">{faq.question}</h3>
                     <p className="text-gray-600">
-                      Comprehensive answer to this frequently asked question, providing all the information
-                      a visitor might need on this topic. Our goal is to address common inquiries and make
-                      it easier for people to get the information they need.
+                      {faq.answer}
                     </p>
                   </div>
                 </Card>
               </motion.div>
             ))}
           </div>
-          
+
           <div className="mt-8 text-center">
             <p className="text-gray-600 mb-4">
               Don't see the answer to your question? Feel free to reach out directly.
             </p>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               icon={<Mail size={18} />}
-              href="mailto:info@researchproject.com"
+              href="mailto:boshithag@gmail.com"
             >
               Email Us Your Question
             </Button>
@@ -506,7 +497,7 @@ const Contact = () => {
       {/* Newsletter */}
       <Section background="primary">
         <div className="text-center max-w-3xl mx-auto">
-          <motion.h2 
+          <motion.h2
             className="text-3xl md:text-4xl font-bold font-serif mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -515,7 +506,7 @@ const Contact = () => {
           >
             Stay Updated on Our Research
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl mb-8 text-white/90"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -536,7 +527,7 @@ const Contact = () => {
               placeholder="Enter your email address"
               className="flex-grow px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <Button 
+            <Button
               variant="primary"
               className="bg-white text-primary-700 hover:bg-gray-100 whitespace-nowrap"
             >
