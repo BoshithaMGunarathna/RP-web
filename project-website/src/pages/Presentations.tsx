@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
-import { FileText, Search, Filter, X, Calendar, ExternalLink, Eye } from 'lucide-react';
+import { FileText, Search, Filter, X, Calendar, ExternalLink, Download } from 'lucide-react';
+import proposal from 'presentation\progress1.pptx'; 
+import progress1 from 'presentation\progress1.pptx';
+import progress2 from 'presentation\progress1.pptx';
+import final from 'presentation\progress1.pptx';
 
 type PresentationCategory = 'all' | 'proposal' | 'progress' | 'final' | 'conferences' | 'workshops' | 'seminars' | 'internal';
 
@@ -15,7 +19,7 @@ interface Presentation {
   slidesUrl?: string;
   recordingUrl?: string;
   thumbnailUrl: string;
-  pdfPath?: string;
+  pptxPath?: string;
   isUpcoming?: boolean;
 }
 
@@ -31,7 +35,7 @@ const Presentations = () => {
       date: 'Jan 15, 2023',
       presenter: 'Dr. Emily Johnson',
       venue: 'Research Committee Meeting',
-      pdfPath: '/presentation/Proposal.pdf',
+      pptxPath: '/presentation/proposal.pptx',
       thumbnailUrl: 'https://images.pexels.com/photos/7103/writing-notes-idea-conference.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
@@ -42,7 +46,7 @@ const Presentations = () => {
       date: 'Apr 22, 2023',
       presenter: 'Research Team',
       venue: 'Department Review Meeting',
-      pdfPath: '/presentation/Progress1.pdf',
+      pptxPath: '/presentation/progress1.pptx',
       recordingUrl: '#',
       thumbnailUrl: 'https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
@@ -54,7 +58,7 @@ const Presentations = () => {
       date: 'Jul 15, 2023',
       presenter: 'Prof. Michael Chen',
       venue: 'Stakeholder Meeting',
-      pdfPath: '/presentation/Progress2.pdf',
+      pptxPath: '/presentation/progress2.pptx',
       thumbnailUrl: 'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
 
@@ -66,7 +70,7 @@ const Presentations = () => {
       date: 'Dec 5, 2023',
       presenter: 'Complete Research Team',
       venue: 'Final Defense Committee',
-      pdfPath: '/presentation/Final.pdf',
+      pptxPath: '/presentation/Final.pptx',
       recordingUrl: '#',
       thumbnailUrl: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
@@ -90,16 +94,22 @@ const Presentations = () => {
       date: 'June, 2025',
       presenter: 'Boshitha Gunarathna',
       venue: 'Online',
-      pdfPath: '/presentations/conference-presentation.pdf',
+      pptxPath: '/presentations/conference-presentation.pptx',
       recordingUrl: '#',
       thumbnailUrl: 'https://images.pexels.com/photos/5427669/pexels-photo-5427669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       isUpcoming: true,
     },
   ]);
 
-  const handleOpenPDF = (presentation: Presentation) => {
-    if (presentation.pdfPath) {
-      window.open(presentation.pdfPath, '_blank');
+  const handleDownloadPresentation = (presentation: Presentation) => {
+    if (presentation.pptxPath) {
+      // Create a temporary anchor element to trigger download
+      const link = document.createElement('a');
+      link.href = presentation.pptxPath;
+      link.download = `${presentation.title.replace(/[^a-zA-Z0-9]/g, '_')}.pptx`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   };
 
@@ -264,13 +274,13 @@ const Presentations = () => {
                       <>
                         {/* Action Buttons */}
                         <div className="flex gap-2">
-                          {presentation.pdfPath && (
+                          {presentation.pptxPath && (
                             <button 
-                              onClick={() => handleOpenPDF(presentation)}
+                              onClick={() => handleDownloadPresentation(presentation)}
                               className="flex items-center gap-2 px-3 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex-1 justify-center"
                             >
-                              <Eye size={16} />
-                              View Slides
+                              <Download size={16} />
+                              Download Slides
                             </button>
                           )}
                           {presentation.recordingUrl && presentation.recordingUrl !== '#' && (
