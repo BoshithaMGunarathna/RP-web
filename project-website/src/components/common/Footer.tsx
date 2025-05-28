@@ -12,11 +12,10 @@ const Footer = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Beaker size={24} className="text-primary-400" />
-              <span className="font-serif font-bold text-xl">Research Project</span>
+              <span className="font-serif font-bold text-xl">AIPT</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Innovative research project exploring new frontiers in our domain,
-              with a focus on creating impactful solutions for real-world problems.
+              AI-driven recruitment platform provides a fair, scalable, and data-driven alternative to traditional interviews.
             </p>
           </div>
 
@@ -90,18 +89,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-gray-400 mt-0.5 shrink-0" />
-                <span className="text-gray-400 text-sm">123 Research Way, Science Park, University Campus</span>
+                <span className="text-gray-400 text-sm">New Kandy Rd, Malabe, SLIIT Campus</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-gray-400 shrink-0" />
                 <a href="mailto:info@researchproject.com" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  info@researchproject.com
+                  boshithag@gmail.com
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-gray-400 shrink-0" />
                 <a href="tel:+11234567890" className="text-gray-400 hover:text-white text-sm transition-colors">
-                  +1 (123) 456-7890
+             +94 (78) 776-2803
                 </a>
               </li>
             </ul>
