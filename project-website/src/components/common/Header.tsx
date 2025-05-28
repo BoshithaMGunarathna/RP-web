@@ -8,6 +8,9 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
     // Close mobile menu when route changes
     setIsOpen(false);
@@ -28,6 +31,27 @@ const Header = () => {
     };
   }, []);
 
+  // Determine text colors based on page and scroll state
+  const getTextColors = () => {
+    if (isHomePage && !scrolled) {
+      // On home page before scrolling - use white text
+      return {
+        logo: 'text-white hover:text-gray-200',
+        logoIcon: 'text-white',
+        menuButton: 'text-white hover:text-gray-200'
+      };
+    } else {
+      // On other pages or after scrolling - use dark text
+      return {
+        logo: 'text-primary-800 hover:text-primary-600',
+        logoIcon: 'text-primary-700',
+        menuButton: 'text-gray-700 hover:text-primary-700'
+      };
+    }
+  };
+
+  const textColors = getTextColors();
+
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -40,21 +64,21 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <NavLink 
             to="/" 
-            className="flex items-center space-x-2 text-primary-800 transition-colors hover:text-primary-600"
+            className={`flex items-center space-x-2 transition-colors ${textColors.logo}`}
           >
-            <Beaker size={24} className="text-primary-700" />
-            <span className="font-serif font-bold text-xl">Research Project</span>
+            <Beaker size={24} className={textColors.logoIcon} />
+            <span className="font-serif font-bold text-xl">AIPT</span>
           </NavLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLinks />
+            <NavLinks isDarkBackground={isHomePage && !scrolled} />
           </nav>
 
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-700 hover:text-primary-700 transition-colors focus:outline-none"
+            className={`md:hidden transition-colors focus:outline-none ${textColors.menuButton}`}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}

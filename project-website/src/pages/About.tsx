@@ -376,8 +376,8 @@ const teamMembers: TeamMember[] = [
           >
             <Button 
               to="/contact" 
-              variant="primary"
-              className="bg-white text-secondary-700 hover:bg-gray-100"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
             >
               Contact Us
             </Button>
@@ -396,4 +396,4 @@ const teamMembers: TeamMember[] = [
 };
 
 
-export default About;
+export default About

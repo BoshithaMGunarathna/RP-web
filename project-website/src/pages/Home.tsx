@@ -266,11 +266,11 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Button 
+           <Button 
               to="/contact" 
-              variant="primary"
+              variant="outline"
               size="lg"
-              className="bg-white text-primary-700 hover:bg-gray-100"
+              className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-primary-800 font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
             >
               Contact Us
             </Button>
