@@ -1,87 +1,284 @@
-import { CheckCircleIcon } from '@heroicons/react/24/solid'
-import { Car, UserCheck, Video } from 'lucide-react'
+import { ArrowRight, BookOpen, ChevronDown, Lightbulb, Award, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Button from '../components/ui/Button';
+import Section from '../components/ui/Section';
+import Card from '../components/ui/Card';
 
-export default function Home() {
+const Home = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div>
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-extrabold text-indigo-900 dark:text-white mb-4 transition-colors duration-300">
-            Automotive Interview System
-          </h1>
-          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300 transition-colors duration-300">
-            Streamline your hiring process with AI-powered video interviews and automated candidate evaluation.
-          </p>
-          <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            Get Started
+      <div className="relative min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/80 z-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center" 
+          style={{ backgroundImage: 'url(https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)' }}
+        ></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-32">
+          <motion.div 
+            className="max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-6">
+              Advancing Research in 
+              <span className="text-accent-400"> Our Domain</span>
+            </h1>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Our AI-driven recruitment platform provides a fair, scalable, and data-driven alternative to traditional interviews.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button 
+                to="/domain" 
+                variant="primary" 
+                size="lg"
+                className="bg-accent-500 hover:bg-accent-600"
+                icon={<BookOpen size={20} />}
+              >
+                Explore Our Research
+              </Button>
+              <Button 
+                to="/contact" 
+                variant="outline" 
+                size="lg"
+                className="border-white text-white hover:bg-white/10"
+              >
+                Get In Touch
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+        
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+          <button 
+            onClick={() => scrollToSection('overview')}
+            className="text-white flex flex-col items-center animate-bounce"
+            aria-label="Scroll down"
+          >
+            <span className="text-sm mb-2">Scroll Down</span>
+            <ChevronDown size={24} />
           </button>
         </div>
-      </section>
+      </div>
 
-      {/* Features Section */}
-      <section className="py-16 px-4 bg-white dark:bg-gray-900 transition-colors duration-300">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md">
-              <div className="flex justify-center mb-4">
-                <Car className="w-12 h-12 text-blue-600 dark:text-blue-400" />
+      {/* Overview Section */}
+      <Section 
+        id="overview"
+        title="Project Overview"
+        subtitle="A system combining NLP, computer vision, and code analysis to reduce human bias in recruitment."
+        background="light"
+        centered
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card variant="elevated" className="h-full p-6" hoverEffect>
+              <div className="flex flex-col h-full">
+                <div className="bg-primary-100 p-3 rounded-full w-fit mb-4">
+                  <Lightbulb className="text-primary-700" size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Innovation</h3>
+                <p className="text-gray-600 flex-grow">
+                  Real-time multimodal assessments: voice-based confidence scoring, gamified stress detection, and code complexity evaluation.
+                </p>
+                <Button 
+                  to="/domain" 
+                  variant="ghost" 
+                  className="mt-4 justify-start px-0"
+                  icon={<ArrowRight size={16} />}
+                  iconPosition="right"
+                >
+                  Learn More
+                </Button>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                Industry Focused
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Tailored specifically for the automotive sector to assess technical skills and professionalism.
-              </p>
-            </div>
-            
-            <div className="text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md">
-              <div className="flex justify-center mb-4">
-                <Video className="w-12 h-12 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                Video Based Mockups
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Conduct interactive video interviews that simulate real-world scenarios.
-              </p>
-            </div>
-            
-            <div className="text-center p-6 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md">
-              <div className="flex justify-center mb-4">
-                <UserCheck className="w-12 h-12 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                Automated Evaluation
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Use AI-driven assessments to automatically evaluate candidate performance and professionalism.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+            </Card>
+          </motion.div>
 
-      {/* Why Choose Us */}
-      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Why Choose Our System?
-          </h2>
-          <div className="space-y-4">
-            {[
-              'Save time with automated candidate screening',
-              'Gain insights with detailed performance analytics',
-              'Enhance candidate experience with smooth video interactions',
-            ].map((point, index) => (
-              <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
-                <CheckCircleIcon className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
-                <span className="text-gray-700 dark:text-gray-200 text-lg">{point}</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <Card variant="elevated" className="h-full p-6" hoverEffect>
+              <div className="flex flex-col h-full">
+                <div className="bg-secondary-100 p-3 rounded-full w-fit mb-4">
+                  <Award className="text-secondary-700" size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Recognition</h3>
+                <p className="text-gray-600 flex-grow">
+                  Our work has been acknowledged for addressing fairness and objectivity in automated hiring systems.
+                </p>
+                <Button 
+                  to="/about" 
+                  variant="ghost" 
+                  className="mt-4 justify-start px-0"
+                  icon={<ArrowRight size={16} />}
+                  iconPosition="right"
+                >
+                  About Our Team
+                </Button>
               </div>
-            ))}
-          </div>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Card variant="elevated" className="h-full p-6" hoverEffect>
+              <div className="flex flex-col h-full">
+                <div className="bg-accent-100 p-3 rounded-full w-fit mb-4">
+                  <FileText className="text-accent-700" size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Publications</h3>
+                <p className="text-gray-600 flex-grow">
+                 Our research has led to published papers in top-tier conferences and journals.
+                </p>
+                <Button 
+                  to="/documents" 
+                  variant="ghost" 
+                  className="mt-4 justify-start px-0"
+                  icon={<ArrowRight size={16} />}
+                  iconPosition="right"
+                >
+                  View Publications
+                </Button>
+              </div>
+            </Card>
+          </motion.div>
         </div>
-      </section>
+      </Section>
+
+      {/* Latest Updates */}
+      <Section
+        title="Latest Updates"
+        subtitle="Stay informed about our recent progress and achievements."
+        background="white"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card variant="bordered" className="h-full">
+              <img 
+                src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                alt="Team collaboration" 
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-6">
+                <div className="text-sm text-primary-700 mb-2">October 15, 2024</div>
+                <h3 className="text-xl font-bold mb-3">New Research Collaboration</h3>
+                <p className="text-gray-600 mb-4">
+                  We're excited to announce a new partnership with Industry Leaders Inc.
+                  to further expand our research capabilities.
+                </p>
+                <Button 
+                  variant="outline" 
+                  icon={<ArrowRight size={16} />}
+                  iconPosition="right"
+                >
+                  Read More
+                </Button>
+              </div>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card variant="bordered" className="h-full">
+              <img 
+                src="https://images.pexels.com/photos/3182826/pexels-photo-3182826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                alt="Research presentation" 
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-6">
+                <div className="text-sm text-primary-700 mb-2">September 28, 2024</div>
+                <h3 className="text-xl font-bold mb-3">Award-Winning Research</h3>
+                <p className="text-gray-600 mb-4">
+                  Our team's innovative approach has been recognized with the
+                  prestigious Industry Innovation Award for 2024.
+                </p>
+                <Button 
+                  variant="outline" 
+                  icon={<ArrowRight size={16} />}
+                  iconPosition="right"
+                >
+                  Read More
+                </Button>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button to="/milestones" variant="primary">View All Updates</Button>
+        </div>
+      </Section>
+
+      {/* Call to Action */}
+      <Section background="primary">
+        <div className="text-center max-w-3xl mx-auto">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold font-serif mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Interested in Collaborating?
+          </motion.h2>
+          <motion.p 
+            className="text-lg md:text-xl mb-8 text-white/90"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            We're always looking for new partners and collaborators to help advance our research.
+            Get in touch to learn more about how we can work together.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Button 
+              to="/contact" 
+              variant="primary"
+              size="lg"
+              className="bg-white text-primary-700 hover:bg-gray-100"
+            >
+              Contact Us
+            </Button>
+          </motion.div>
+        </div>
+      </Section>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
