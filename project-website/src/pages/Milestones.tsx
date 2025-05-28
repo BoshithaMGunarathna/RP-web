@@ -1,4 +1,4 @@
-import { Calendar } from 'lucide-react';
+import { Award, Book, Calendar, CheckCircle, DownloadCloud, FileText, Presentation, Search, User, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Section from '../components/ui/Section';
 import Timeline, { TimelineItem } from '../components/ui/Timeline';
@@ -8,59 +8,127 @@ const Milestones = () => {
   const timelineItems: TimelineItem[] = [
     {
       id: '1',
-      date: 'January 2023',
-      title: 'Project Inception',
-      description: 'Initial research proposal accepted and funding secured for the project.',
+      date: '16h Aug, 2024',
+      title: 'Proposal Report',
+      description: 'Document the project proposal by individually ',
+      marksAllocated: 6,
+      progress: 6,
       status: 'completed',
+      icon: <CheckCircle className="w-4 h-4" />
     },
     {
       id: '2',
-      date: 'March 2023',
-      title: 'Team Formation',
-      description: 'Assembled a multidisciplinary team of researchers and established collaborations with key partners.',
+      date: '5th-9th July,2024',
+      title: 'Proposal presentation',
+      description: 'Present project proposal to panel',
+      marksAllocated: 6,
+      progress: 12,
       status: 'completed',
+      icon: <Presentation className="w-4 h-4" />
     },
     {
       id: '3',
-      date: 'June 2023',
-      title: 'Initial Findings',
-      description: 'Completed preliminary research and published first set of findings in conference proceedings.',
+      date: '4th-6th Dec,2024',
+      title: 'Progress Presentation – I',
+      description: 'First progress presentation milestone',
+      marksAllocated:15,
+      progress: 27,
       status: 'completed',
+      icon: <Presentation className="w-4 h-4" />
     },
     {
       id: '4',
-      date: 'September 2023',
-      title: 'Methodology Refinement',
-      description: 'Refined research methodology based on initial findings and peer feedback.',
+      date: '4th-6th Dec,2024',
+      title: 'Check List – I',
+      description: 'First check list.Need to upload Git Repository README.MD file',
+      marksAllocated:2,
+      progress: 29,
       status: 'completed',
+      icon: <Presentation className="w-4 h-4" />
     },
     {
       id: '5',
-      date: 'January 2024',
-      title: 'Major Breakthrough',
-      description: 'Achieved significant breakthrough in our primary research area, leading to new avenues of exploration.',
+      date: '17th March,2025',
+      title: 'Check List – II',
+      description: 'Second check list.Need to export report from project management tool and upload it',
+      marksAllocated:2,
+      progress: 31,
       status: 'completed',
+      icon: <Presentation className="w-4 h-4" />
     },
     {
       id: '6',
-      date: 'April 2024',
-      title: 'Journal Publication',
-      description: 'Published comprehensive findings in a leading peer-reviewed journal.',
-      status: 'in-progress',
+      date: '20th March,2025',
+      title: 'Research paper',
+      description: 'Submit research paper draft',
+      marksAllocated: 10,
+      progress: 41,
+      status: 'completed',
+      icon: <Search className="w-4 h-4" />
     },
     {
       id: '7',
-      date: 'July 2024',
-      title: 'Industry Partnership',
-      description: 'Established partnership with industry leader to develop practical applications of our research.',
-      status: 'in-progress',
+      date: '11th Apr,2025',
+      title: 'Final reports',
+      description: 'Complete final project reports',
+      marksAllocated: 19,
+      progress: 60,
+      status: 'completed',
+      icon: <FileText className="w-4 h-4" />
     },
     {
       id: '8',
-      date: 'December 2024',
+      date: '18th-20th Mar,2025',
+      title: 'Progress Presentation – II',
+      description: 'Second progress presentation milestone',
+      marksAllocated: 18,
+      progress: 78,
+      status: 'completed',
+      icon: <Presentation className="w-4 h-4" />
+    },
+    {
+      id: '9',
+      date: '26th-28th May,2025',
+      title: 'Final presentation & VIVA',
+      description: 'Final project presentation and viva voce',
+      marksAllocated: 20,
+      progress: 98,
+      status: 'completed',
+      icon: <Award className="w-4 h-4" />
+    },
+    {
+      id: '10',
+      date: '28th May,2025',
+      title: 'Project website',
+      description: 'Deploy and submit project website',
+      marksAllocated: 2,
+      progress: 100,
+      status: 'in-progress',
+      icon: <Book className="w-4 h-4" />
+    },
+    {
+      id: '11',
+      date: '10th June,2025',
+      title: 'Journal Publication',
+      description: 'Published comprehensive findings in a leading peer-reviewed journal.',
+      status: 'in-progress',
+      marksAllocated: 0,
+    },
+    {
+      id: '12',
+      date: '11th July,2025',
+      title: 'Industry Partnership',
+      description: 'Established partnership with industry leader to develop practical applications of our research.',
+      status: 'upcoming',
+      marksAllocated: 0,
+    },
+    {
+      id: '13',
+      date: '10th Aug,2025',
       title: 'Final Project Outcomes',
       description: 'Compilation of all research findings and development of future research directions.',
       status: 'upcoming',
+      marksAllocated: 0,
     },
   ];
 
@@ -125,7 +193,7 @@ const Milestones = () => {
             transition={{ duration: 0.5 }}
           >
             <Card variant="elevated" className="h-full p-6 text-center">
-              <div className="text-5xl font-bold text-primary-700 mb-2">75%</div>
+              <div className="text-5xl font-bold text-primary-700 mb-2">98%</div>
               <h3 className="text-xl mb-3">Project Completion</h3>
               <p className="text-gray-600">
                 Overall progress toward our research objectives
@@ -140,7 +208,7 @@ const Milestones = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Card variant="elevated" className="h-full p-6 text-center">
-              <div className="text-5xl font-bold text-secondary-600 mb-2">6</div>
+              <div className="text-5xl font-bold text-secondary-600 mb-2">1</div>
               <h3 className="text-xl mb-3">Publications</h3>
               <p className="text-gray-600">
                 Research papers published in peer-reviewed journals
@@ -155,7 +223,7 @@ const Milestones = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Card variant="elevated" className="h-full p-6 text-center">
-              <div className="text-5xl font-bold text-accent-500 mb-2">3</div>
+              <div className="text-5xl font-bold text-accent-500 mb-2">0</div>
               <h3 className="text-xl mb-3">Patents</h3>
               <p className="text-gray-600">
                 Patent applications filed based on our research
@@ -174,24 +242,11 @@ const Milestones = () => {
 
         <Timeline items={timelineItems} className="mb-16" />
 
-        <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 max-w-3xl mx-auto">
-          <div className="flex items-center mb-4">
-            <div className="w-3 h-3 rounded-full bg-success-500 mr-2"></div>
-            <span className="text-sm">Completed</span>
-            <div className="w-3 h-3 rounded-full bg-primary-500 mx-4 mr-2"></div>
-            <span className="text-sm">In Progress</span>
-            <div className="w-3 h-3 rounded-full bg-gray-300 mx-4 mr-2"></div>
-            <span className="text-sm">Upcoming</span>
-          </div>
-          <p className="text-gray-600 text-sm">
-            This timeline is regularly updated as we progress through our research objectives.
-            For the most current information, please check back regularly.
-          </p>
-        </div>
+        
       </Section>
 
       {/* Key Achievements */}
-      <Section title="Key Achievements" background="light" centered>
+      {/* <Section title="Key Achievements" background="light" centered>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {achievements.map((achievement, i) => (
             <motion.div
@@ -216,10 +271,10 @@ const Milestones = () => {
             </motion.div>
           ))}
         </div>
-      </Section>
+      </Section> */}
 
       {/* Upcoming Milestones */}
-      <Section title="Upcoming Milestones" subtitle="What to expect in the coming months">
+      {/* <Section title="Upcoming Milestones" subtitle="What to expect in the coming months">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
             <motion.div
@@ -247,10 +302,10 @@ const Milestones = () => {
             </motion.div>
           ))}
         </div>
-      </Section>
+      </Section> */}
 
       {/* Project Reports */}
-      <Section background="light" title="Project Reports" centered>
+      {/* <Section background="light" title="Project Reports" centered>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {[2023, 2024].map((year, i) => (
             <motion.div
@@ -279,7 +334,7 @@ const Milestones = () => {
             </motion.div>
           ))}
         </div>
-      </Section>
+      </Section> */}
     </div>
   );
 };
