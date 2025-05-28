@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Button from '../components/ui/Button';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
+import latestImg from '../assets/images/latest_update1.jpg';
 
 const Home = () => {
   const scrollToSection = (id: string) => {
@@ -77,6 +78,7 @@ const Home = () => {
         subtitle="A system combining NLP, computer vision, and code analysis to reduce human bias in recruitment."
         background="light"
         centered
+        className="[&_p]:text-center [&_p]:mx-auto [&_p]:max-w-4xl [&_p]:text-gray-700"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div
@@ -165,11 +167,158 @@ const Home = () => {
         </div>
       </Section>
 
+      {/* Achievements Section */}
+      <Section
+        title="Recent Achievements"
+        subtitle="We have registered for SLASSCOM and our research paper has been accepted for the conference"
+        centered
+        className="bg-gradient-to-br from-primary-50 to-secondary-50 [&_p]:text-center [&_p]:mx-auto [&_p]:max-w-4xl [&_p]:text-gray-700"
+        
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* SLASSCOM Registration */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="order-2 lg:order-1"
+          >
+            <Card variant="elevated" className="overflow-hidden group hover:shadow-2xl transition-all duration-300">
+              <div className="relative overflow-hidden">
+                <img 
+                  src="/src/assets/images/rp-1.jpg" 
+                  alt="SLASSCOM Award Ceremony" 
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500 ml-35"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-4 left-4">
+                  <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    SLASSCOM
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3 text-gray-800">
+                  SLASSCOM Registration
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  We are proud to be registered with the Sri Lanka Association for Software and Service Companies (SLASSCOM), 
+                  joining the leading technology community in Sri Lanka to advance innovation and collaboration.
+                </p>
+                <div className="flex items-center text-primary-600 font-medium">
+                  <Award size={20} className="mr-2" />
+                  <span>Official Member</span>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Conference Acceptance */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="order-1 lg:order-2"
+          >
+            <Card variant="elevated" className="overflow-hidden group hover:shadow-2xl transition-all duration-300">
+              <div className="relative overflow-hidden h-80">
+                <img 
+                  src="/src/assets/images/rp-2.jpg" 
+                  alt="Research Paper Conference Acceptance" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 p-20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-4 left-4">
+                  <span className="bg-accent-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Accepted
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3 text-gray-800">
+                  Conference Paper Accepted
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Our research paper on AI-driven recruitment systems has been officially accepted for presentation 
+                  at a prestigious academic conference, marking a significant milestone in our research journey.
+                </p>
+                <div className="flex items-center text-accent-600 font-medium">
+                  <FileText size={20} className="mr-2" />
+                  <span>Peer Reviewed</span>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+
+        {/* Achievement Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16"
+        >
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="group">
+                <div className="bg-primary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors duration-300">
+                  <Award className="text-primary-700" size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-gray-800 mb-2">SLASSCOM</h4>
+                <p className="text-gray-600">Registered Member</p>
+              </div>
+              
+              <div className="group">
+                <div className="bg-accent-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-200 transition-colors duration-300">
+                  <FileText className="text-accent-700" size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-gray-800 mb-2">Research</h4>
+                <p className="text-gray-600">Paper Accepted</p>
+              </div>
+              
+              <div className="group">
+                <div className="bg-secondary-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-200 transition-colors duration-300">
+                  <Lightbulb className="text-secondary-700" size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-gray-800 mb-2">Innovation</h4>
+                <p className="text-gray-600">Recognized Excellence</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <Button 
+            to="/documents" 
+            variant="primary"
+            size="lg"
+            className="bg-primary-600 hover:bg-primary-700"
+            icon={<ArrowRight size={20} />}
+            iconPosition="right"
+          >
+            View Our Research Papers
+          </Button>
+        </motion.div>
+      </Section>
+
       {/* Latest Updates */}
       <Section
         title="Latest Updates"
         subtitle="Stay informed about our recent progress and achievements."
         background="white"
+        className='[&_p]:text-center [&_p]:mx-auto [&_p]:max-w-4xl [&_p]:text-gray-700'
+        centered
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div
@@ -210,10 +359,11 @@ const Home = () => {
           >
             <Card variant="bordered" className="h-full">
               <img 
-                src="https://images.pexels.com/photos/3182826/pexels-photo-3182826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                src={latestImg} 
                 alt="Research presentation" 
                 className="w-full h-56 object-cover"
               />
+
               <div className="p-6">
                 <div className="text-sm text-primary-700 mb-2">September 28, 2024</div>
                 <h3 className="text-xl font-bold mb-3">Award-Winning Research</h3>
@@ -266,13 +416,13 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-           <Button 
-              to="/contact" 
-              variant="outline"
-              size="lg"
-              className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-primary-800 font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
-            >
-              Contact Us
+            <Button 
+                to="/contact" 
+                variant="outline"
+                size="lg"
+                className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-primary-800 font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+              >
+                Contact Us
             </Button>
           </motion.div>
         </div>

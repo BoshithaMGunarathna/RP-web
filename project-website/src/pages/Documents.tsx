@@ -25,16 +25,16 @@ const Documents = () => {
   const [activeCategory, setActiveCategory] = useState<DocumentCategory>('all');
 
   const documents: Document[] = [
-    {
-      id: '1',
-      title: 'Project Charter',
-      description: 'The foundational document outlining project objectives, scope, stakeholders, and high-level requirements for the research initiative.',
-      category: 'reports',
-      date: 'Jan 15, 2024',
-      fileType: 'PDF',
-      fileSize: '1.2 MB',
-      filePath: '/documents/project-charter.pdf'
-    },
+    // {
+    //   id: '1',
+    //   title: 'Project Charter',
+    //   description: 'The foundational document outlining project objectives, scope, stakeholders, and high-level requirements for the research initiative.',
+    //   category: 'reports',
+    //   date: 'Jan 15, 2024',
+    //   fileType: 'PDF',
+    //   fileSize: '1.2 MB',
+    //   filePath: '/documents/project-charter.pdf'
+    // },
     {
       id: '2',
       title: 'Project Proposal Document',
@@ -61,7 +61,7 @@ const Documents = () => {
       description: 'Comprehensive checklist for the implementation phase, including task dependencies, quality gates, and progress tracking.',
       category: 'reports',
       date: 'Mar 5, 2024',
-      fileType: 'PDF',
+      fileType: 'MD',
       fileSize: '1.1 MB',
       filePath: '../documents/README.md'
     },
@@ -152,7 +152,7 @@ const Documents = () => {
       date: 'Aug 02, 2024',
       fileType: 'Kaggle Dataset',
       fileSize: 'Online',
-      filePath: 'https://www.kaggle.com/datasets/adityaprashantshirke/prakriti-updated',
+      filePath: 'https://drive.google.com/file/d/13LEdujjPBs8grbtjB2nfvGl3-QSY03J8/view',
     },
     {
       id: '14',
@@ -197,24 +197,26 @@ const Documents = () => {
     { id: 'data', label: 'Data Sets' },
   ];
 
-
-   const handleDocumentAction = (doc: Document) => {
+  const handleDocumentAction = (doc: Document) => {
     if (doc.filePath) {
       if (doc.isExternal) {
         // Open external links in new tab
         window.open(doc.filePath, '_blank');
       } else {
-        // For local PDFs, create a download link
+        // For local files, create a download link
         const link = document.createElement('a');
         link.href = doc.filePath;
-        link.download = `${doc.title}.pdf`;
-        link.target = '_blank'; // This will open in new tab if browser allows
+
+        // Determine the file extension
+        const extension = doc.fileType.toLowerCase() === 'md' ? 'md' : 'pdf';
+        link.download = `${doc.title}.${extension}`;
+        link.target = '_blank'; // This will open in a new tab if browser allows
+
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
       }
     } else {
-      
       alert(`${doc.title} download will be available soon.`);
     }
   };
